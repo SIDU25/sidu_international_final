@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SIDU International Loan Form - Page 1</title>
+  <style>
+    body {
+      font-family: "Times New Roman", Times, serif;
+      margin: 10px 30px;
+      font-size: 13px;
+      position: relative;
+    }
+
+    /* Header Styling */
+    .top-header {
+      text-align: center;
+      border-bottom: 1px solid #000;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+    .top-header img {
+      width: 60px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+    .top-header h1 {
+      font-size: 18px;
+      margin: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .top-header p {
+      font-size: 12px;
+      margin: 2px 0 0 0;
+      color: #555;
+    }
+
+    /* Watermark Styling */
+    .watermark {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 60px;
+      color: rgba(200, 200, 200, 0.15);
+      z-index: 0;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Form Styling */
+    h2 {
+      color: navy;
+      margin-bottom: 5px;
+      font-size: 15px;
+    }
+    .section-title {
+      color: navy;
+      font-weight: bold;
+      margin-top: 20px;
+      text-decoration: underline;
+    }
+    .form-row {
+      margin-bottom: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      z-index: 1;
+    }
+    .form-row label {
+      min-width: 130px;
+    }
+    .input-line {
+      border: none;
+      border-bottom: 1px solid black;
+      width: 140px;
+      font-size: 13px;
+      font-family: "Times New Roman", Times, serif;
+      background: transparent;
+      outline: none;
+      height: 16px;
+      margin-right: 20px;
+    }
+    .input-line.small {
+      width: 80px;
+    }
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .photo-preview {
+      width: 100px;
+      height: 120px;
+      border: 1px solid #000;
+      margin-bottom: 5px;
+      object-fit: cover;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+    }
+    .passport-section {
+      text-align: right;
+    }
+    .passport-section label {
+      display: block;
+      margin-top: 5px;
+      font-size: 12px;
+    }
+    .passport-section.hide-label label {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Watermark -->
+  <div class="watermark">SIDU INTERNATIONAL</div>
+
+  <!-- Header -->
+  <div class="top-header">
+    <img src="sidu_logo.png" alt="SIDU Logo">
+    <div style="display: inline-block;">
+      <h1>SIDU INTERNATIONAL</h1>
+      <p>Smart Investments & Development Unit - Loan Application Form</p>
+    </div>
+  </div>
+
+  <!-- Top Row: Number and Passport Upload -->
+  <div class="header">
+    <div>
+      <p><strong>NO.</strong> <input class="input-line small" type="text">
+         <br><strong>Date:</strong> <input class="input-line small" type="text"></p>
+    </div>
+    <div class="passport-section" id="passportSection">
+      <img id="passportPreview" class="photo-preview" alt="Passport Photo Preview">
+      <label id="passportLabel"><strong>Upload Passport Photo:</strong>
+        <input type="file" accept="image/*" onchange="previewPassport(event)">
+      </label>
+    </div>
+  </div>
+
+  <h2>APPLICANT’S PARTICULARS</h2>
+  <div class="form-row">
+    <label>Applicant’s Name:</label><input class="input-line" type="text">
+    <label>ID / Passport No:</label><input class="input-line" type="text">
+    <label>Nationality:</label><input class="input-line" type="text">
+  </div>
+  <div class="form-row">
+    <label>Town:</label><input class="input-line" type="text">
+    <label>Phone No:</label><input class="input-line" type="text">
+    <label>Alternative No:</label><input class="input-line" type="text">
+  </div>
+  <div class="form-row">
+    <label>Email:</label><input class="input-line" type="text">
+    <label>Marital Status:</label><input class="input-line" type="text">
+    <label>Spouse Name:</label><input class="input-line" type="text">
+  </div>
+  <div class="form-row">
+    <label>Spouse ID No:</label><input class="input-line" type="text">
+    <label>Spouse Phone:</label><input class="input-line" type="text">
+    <label>Alternative:</label><input class="input-line" type="text">
+  </div>
+  <div class="form-row">
+    <label>Applicant Signature:</label><input class="input-line" type="text">
+  </div>
+
+  <h2 class="section-title">RESIDENTIAL DETAILS</h2>
+  <div class="form-row">
+    <label>Location:</label><input class="input-line" type="text">
+    <label>Plot No / Name:</label><input class="input-line" type="text">
+    <label>House No:</label><input class="input-line" type="text">
+  </div>
+  <div class="form-row">
+    <label>Nearest Landmark:</label><input class="input-line" type="text">
+    <label>Gate Colour:</label><input class="input-line" type="text">
+  </div>
+
+  <h2 class="section-title">BUSINESS INFORMATION</h2>
+  <div class="form-row">
+    <label>Business Ownership:</label>
+    <span class="checkbox-group">
+      <label><input type="checkbox"> Family</label>
+      <label><input type="checkbox"> Sole</label>
+      <label><input type="checkbox"> Partnership</label>
+      <label><input type="checkbox"> Ltd</label>
+    </span>
+  </div>
+  <div class="form-row">
+    <label>Business Name:</label><input class="input-line" type="text">
+    <label>Years in Operation:</label><input class="input-line" type="text">
+    <label>Registration No:</label><input class="input-line" type="text">
+  </div>
+  <div class="form-row">
+    <label>License No:</label><input class="input-line" type="text">
+    <label>Mode:</label>
+    <span class="checkbox-group">
+      <label><input type="checkbox"> Retail</label>
+      <label><input type="checkbox"> Wholesale</label>
+    </span>
+  </div>
+  <div class="form-row">
+    <label>Business Location:</label><input class="input-line" type="text">
+    <label>Landmark:</label><input class="input-line" type="text">
+    <label>Value (Ksh):</label><input class="input-line" type="text">
+    <label>Daily Income:</label><input class="input-line" type="text">
+  </div>
+
+  <h2 class="section-title">LOAN DETAILS</h2>
+  <div class="form-row">
+    <label>Loan Amount (Ksh):</label><input class="input-line" type="text">
+    <label>In Words:</label><input class="input-line" style="width: 300px;" type="text">
+  </div>
+  <div class="form-row">
+    <label>Purpose:</label><input class="input-line" style="width: 400px;" type="text">
+  </div>
+  <div class="form-row">
+    <label>Interest Rate (%/month):</label><input class="input-line small" type="text">
+    <label>Max Repayment:</label><input class="input-line" type="text">
+  </div>
+  <div class="form-row">
+    <label>Repayment Plan:</label><input class="input-line" style="width: 300px;" type="text">
+    <label>Signature:</label><input class="input-line small" type="text">
+  </div>
+  <div class="form-row">
+    <label>Additional Collateral:</label><input class="input-line" style="width: 400px;" type="text">
+  </div>
+
+  <h2 class="section-title">OFFICE APPROVAL SECTION (ONLY)</h2>
+  <div class="form-row">
+    <label>Approved Amount:</label><input class="input-line" type="text">
+    <label>Approval Date:</label><input class="input-line" type="text">
+    <label>Disbursed Date:</label><input class="input-line" type="text">
+  </div>
+  <div class="form-row">
+    <label>Mode:</label>
+    <span class="checkbox-group">
+      <label><input type="checkbox"> Cheque</label>
+      <label><input type="checkbox"> M-PESA</label>
+    </span>
+    <label>Ref/Cheque No:</label><input class="input-line" type="text">
+    <label>M-PESA No:</label><input class="input-line" type="text">
+  </div>
+  <div class="form-row">
+    <label>Loan Officer:</label><input class="input-line" type="text">
+    <label>Designation:</label><input class="input-line" type="text">
+    <label>Signature:</label><input class="input-line small" type="text">
+  </div>
+
+  <script>
+    function previewPassport(event) {
+      const reader = new FileReader();
+      reader.onload = function(){
+        document.getElementById('passportPreview').src = reader.result;
+        document.getElementById('passportSection').classList.add("hide-label");
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  </script>
+
+</body>
+</html>

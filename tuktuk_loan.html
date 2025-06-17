@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuk Tuk Loan Application - Sidu International Limited</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('tuktukbg.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            max-width: 600px;
+            margin: 50px auto;
+            border-radius: 10px;
+        }
+        h2 {
+            color: gold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            background: goldenrod;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Tuk Tuk Loan Application</h2>
+        <form action="process-tuktuk-loan.php" method="POST" enctype="multipart/form-data">
+
+            <label>Full Name:</label>
+            <input type="text" name="full_name" required>
+
+            <label>ID Number:</label>
+            <input type="text" name="id_number" required>
+
+            <label>Upload ID Front:</label>
+            <input type="file" name="id_front" accept="image/*" required>
+
+            <label>Upload ID Back:</label>
+            <input type="file" name="id_back" accept="image/*" required>
+
+            <label>Upload Selfie:</label>
+            <input type="file" name="selfie" accept="image/*" required>
+
+            <label>Upload Driving License:</label>
+            <input type="file" name="driving_license" accept="image/*" required>
+
+            <label>Upload Tuk Tuk Photo:</label>
+            <input type="file" name="tuktuk_photo" accept="image/*" required>
+
+            <label>Log Book Upload:</label>
+            <input type="file" name="log_book" accept="image/*" required>
+
+            <label>Tuk Tuk Color:</label>
+            <input type="text" name="tuktuk_color" required>
+
+            <label>Mileage:</label>
+            <input type="number" name="mileage" required>
+
+            <label>Loan Amount (KES):</label>
+            <input type="number" id="loanAmount" name="loan_amount" required>
+
+            <label>Repayment Duration (Months):</label>
+            <input type="number" id="loanDuration" name="loan_duration" required>
+
+            <label>Estimated Monthly Payment (KES):</label>
+            <input type="text" id="monthlyPayment" readonly>
+
+            <button type="button" onclick="calculateLoan()">Calculate Loan</button>
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+
+    <script>
+        function calculateLoan() {
+            let amount = document.getElementById('loanAmount').value;
+            let duration = document.getElementById('loanDuration').value;
+            let interestRate = 0.12; // Example 12% annual interest
+            let monthlyInterest = (amount * interestRate) / 12;
+            let monthlyPayment = (amount / duration) + monthlyInterest;
+            document.getElementById('monthlyPayment').value = monthlyPayment.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>

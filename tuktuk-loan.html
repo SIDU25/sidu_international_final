@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tuk Tuk Loan - Sidu International Limited</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('tuktukbg.jpeg') no-repeat center center/cover;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 60px 30px;
+      max-width: 900px;
+      text-align: center;
+      border-radius: 20px;
+      animation: fadeIn 1.5s ease-out;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: gold;
+      margin-bottom: 20px;
+      animation: slideDown 1s ease-out;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    .highlight {
+      color: #00ccff;
+      font-weight: bold;
+    }
+
+    .btn-apply {
+      background: linear-gradient(to right, gold, #ffcc00);
+      color: #000;
+      padding: 15px 35px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+      animation: fadeInUp 1.5s ease-out;
+    }
+
+    .btn-apply:hover {
+      background: #00ccff;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Tuk Tuk Loan</h1>
+    <p>Own a <span class="highlight">Tuk Tuk</span> or planning to buy one?</p>
+    <p>
+      Get a fast and flexible loan today. If you already own a Tuk Tuk, use your <span class="highlight">logbook</span> to secure funding.
+    </p>
+    <p>
+      If you have <span class="highlight">50%</span> of the cost, Sidu will top up the remaining half so you can drive away today.
+    </p>
+    <p>
+      Start earning immediately and repay with ease. Enjoy a simple plan of as low as <span class="highlight">KES 1,000 daily</span>.
+    </p>
+    <p>Let your Tuk Tuk earn for you while you build your dream.</p>
+    <button class="btn-apply" onclick="location.href='register.html'">Apply Now</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidu Blog – Financial Insights & Tips</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('bridge.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        /* Navigation Bar */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Blog Section */
+        #blog {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 80px 20px 60px;
+            text-align: center;
+            max-width: 90%;
+            margin: 80px auto;
+            border-radius: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        #blog h1 {
+            font-size: 32px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #f8c24d;
+        }
+
+        #blog p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: auto;
+            color: white;
+        }
+
+        /* Button Styling */
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #f8c24d;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #ffd700;
+        }
+
+        /* Recent Blog Posts */
+        #recent-posts {
+            padding: 50px 20px;
+            text-align: center;
+            max-width: 90%;
+            margin: auto;
+        }
+
+        #recent-posts h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #f8c24d;
+        }
+
+        .blog-post {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin: 15px auto;
+            border-radius: 10px;
+            max-width: 800px;
+            color: black;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .blog-post h3 {
+            color: #2f80ed;
+        }
+
+        .blog-post a {
+            color: #2f80ed;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .slide-in {
+            animation: slideIn 2s ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Loans & Services</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Blog Section -->
+    <section id="blog">
+        <div>
+            <h1 class="fade-in">Welcome to the Sidu Blog</h1>
+            <p class="slide-in">
+                At Sidu International Limited, we believe that **financial knowledge is the key to success**. Our blog is your go-to source for the latest insights on **loan management, smart borrowing, business growth strategies, and investment opportunities**. Whether you're looking for guidance on securing the right loan, managing your finances effectively, or maximizing your business potential, we provide expert tips to help you make **informed financial decisions**.
+            </p>
+            <p class="slide-in">
+                Our content is tailored for **individuals, businesses, and investment groups (Chamas)** who seek financial empowerment. Learn about **quick loan approvals, competitive interest rates, and how to build a solid credit profile**. Stay updated with industry trends and discover **how Sidu's loan solutions can help you achieve your financial goals**.
+            </p>
+            <p class="slide-in">
+                We understand that financial literacy is an ongoing journey, and that’s why we keep you informed with regular updates. Subscribe to our blog and get **real-time financial insights**, exclusive loan offers, and expert advice delivered straight to your inbox. **Join our growing community and take control of your financial future today!**
+            </p>
+            <a href="#recent-posts" class="btn pulse">Get Updates</a>
+        </div>
+    </section>
+
+    <!-- Recent Blog Posts -->
+    <section id="recent-posts">
+        <h2>Recent Posts</h2>
+        <div class="blog-post">
+            <h3>5 Smart Ways to Secure a Loan with Sidu</h3>
+            <p>Understanding how to get approved quickly and make the most of your loan...</p>
+            <a href="#">Read More</a>
+        </div>
+
+        <div class="blog-post">
+            <h3>How Chamas Can Benefit from Sidu’s Group Accounts</h3>
+            <p>Learn how collective saving and borrowing can help your group grow financially...</p>
+            <a href="#">Read More</a>
+        </div>
+
+        <div class="blog-post">
+            <h3>Understanding Interest Rates: What You Need to Know</h3>
+            <p>Breaking down loan interest rates and how they affect your repayments...</p>
+            <a href="#">Read More</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Sidu International Limited. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Smooth Scroll and Animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let posts = document.querySelectorAll(".blog-post");
+            let observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            posts.forEach(post => observer.observe(post));
+        });
+    </script>
+
+</body>
+</html>

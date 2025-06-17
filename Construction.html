@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Construction Loan - Sidu International</title>
+  <link rel="stylesheet" href="construction.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      background: linear-gradient(to right, #e3f2fd, #fefefe);
+      color: #333;
+      transition: all 0.5s ease-in-out;
+    }
+    header {
+      background-color: #0077b6;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: #ffcc00;
+    }
+    .hero {
+      padding: 100px 20px;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1600607688998-b53d65f73e6d?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .hero h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .content {
+      padding: 60px 20px;
+      text-align: center;
+      animation: slideUp 1.5s ease-in-out;
+    }
+    .content h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #0077b6;
+    }
+    .content p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    .cta-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 18px;
+      text-decoration: none;
+      transition: background 0.3s ease-in-out;
+    }
+    .cta-btn:hover {
+      background-color: #ffcc00;
+      color: #000;
+    }
+
+    .summary-section {
+      padding: 60px 20px;
+      background: #f0f9ff;
+      text-align: center;
+    }
+    .summary-section h3 {
+      font-size: 26px;
+      margin-bottom: 40px;
+      color: #0077b6;
+    }
+    .summary-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .summary-box {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      max-width: 300px;
+      transition: transform 0.3s ease;
+    }
+    .summary-box h4 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #0077b6;
+    }
+    .summary-box p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .animated-box {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideUp 1s forwards;
+    }
+    .animated-box:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    .animated-box:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    .animated-box:nth-child(3) {
+      animation-delay: 0.7s;
+    }
+
+    footer {
+      background-color: #003049;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Sidu International Ltd</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="product.html">Loan Types</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Finish Your Construction with Ease</h2>
+  <p>Don't let your building project stall. If you’ve already put in 50%, we’ll top it up with the remaining 50% to help you bring your dream to life!</p>
+</section>
+
+<section class="content">
+  <h3>Build Without Worry</h3>
+  <p>
+    At Sidu International Limited, we believe in progress — and nothing says progress like completing your dream home or business premises. With our Construction Loan, we step in when you're halfway there. If you’ve already invested 50% into your construction, we’ll match it with the other 50% — so you can finish strong.
+    <br /><br />
+    We’re here to ensure your project doesn’t sit idle. With flexible repayment plans, fast approvals, and full transparency, Sidu is the partner you need to bring your blueprint to life.
+  </p>
+  <a href="register.html" class="cta-btn">Apply Now</a>
+</section>
+
+<section class="summary-section">
+  <h3>Why Choose Our Construction Loan?</h3>
+  <div class="summary-container">
+    <div class="summary-box animated-box">
+      <h4>50/50 Support</h4>
+      <p>Once you've covered 50% of your construction, we top up the remaining 50% — helping you complete your project without delay.</p>
+    </div>
+    <div class="summary-box animated-box">
+      <h4>Fast Approval</h4>
+      <p>We understand time is money in construction. Our streamlined application ensures quick processing and disbursement.</p>
+    </div>
+    <div class="summary-box animated-box">
+      <h4>Flexible Repayment</h4>
+      <p>Enjoy convenient repayment plans tailored to your project's needs and your financial comfort.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Kiambu Indian Bazaar & Kiserian - Mon to Sat, 8 AM - 7 PM | Call: 0714 175 910 | Email: siduinternational@gmail.com
+</footer>
+
+</body>
+</html>

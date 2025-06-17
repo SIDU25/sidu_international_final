@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loan Application - Page 1</title>
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      margin: 40px;
+      font-size: 16px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+    .line-input {
+      border: none;
+      border-bottom: 1px solid black;
+      width: 250px;
+      font-size: 16px;
+    }
+    .small-input {
+      width: 100px;
+    }
+    .medium-input {
+      width: 180px;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .row {
+      margin-bottom: 10px;
+    }
+    label {
+      display: inline-block;
+      min-width: 200px;
+    }
+    @media print {
+      .line-input {
+        border: none;
+        border-bottom: 1px solid black;
+      }
+      body {
+        margin: 20mm;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>SIDU INTERNATIONAL</h2>
+  <h3 style="text-align:center; margin-top: 0;">Loan Application Form</h3>
+
+  <div class="section">
+    <div class="row"><label>Applicant Name:</label><input type="text" class="line-input"></div>
+    <div class="row"><label>Phone Number:</label><input type="text" class="line-input"></div>
+    <div class="row"><label>ID Number:</label><input type="text" class="line-input"></div>
+    <div class="row"><label>Nationality:</label><input type="text" class="line-input"></div>
+    <div class="row"><label>Gender:</label><input type="text" class="small-input line-input"> <label style="width:auto;">Date of Birth:</label><input type="text" class="medium-input line-input"></div>
+    <div class="row"><label>Residential Address:</label><input type="text" class="line-input"></div>
+    <div class="row"><label>Business Name:</label><input type="text" class="line-input"></div>
+    <div class="row"><label>Business Address/Location:</label><input type="text" class="line-input"></div>
+    <div class="row"><label>Type of Business:</label><input type="text" class="line-input"></div>
+    <div class="row"><label>Loan Amount Applied:</label><input type="text" class="line-input"></div>
+    <div class="row"><label>Repayment Duration (months):</label><input type="text" class="small-input line-input"></div>
+  </div>
+
+  <p><strong>Signature:</strong> _________________________</p>
+  <p><strong>Date:</strong> _____________________________</p>
+</body>
+</html>

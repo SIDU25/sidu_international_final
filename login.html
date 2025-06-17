@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Sidu International</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease-in-out;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 420px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+    p.tagline {
+      text-align: center;
+      font-size: 15px;
+      margin-bottom: 30px;
+      color: #d4edff;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input {
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 5px #00c6ff;
+    }
+    button {
+      padding: 12px;
+      background: #00c6ff;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00c6ff, 0 0 20px #0072ff;
+    }
+    button:hover {
+      background: #0072ff;
+      box-shadow: 0 0 12px #fff, 0 0 25px #00c6ff;
+    }
+    .links {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    .links a {
+      color: #d4edff;
+      text-decoration: none;
+    }
+    .links a:hover {
+      text-decoration: underline;
+      color: #fff;
+    }
+    @media (max-width: 480px) {
+      .overlay {
+        padding: 30px 20px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay">
+    <h1>Welcome Back to Sidu International</h1>
+    <p class="tagline">Empowering your financial journey – secure, smart, and fast loans when you need them most.</p>
+
+    <form action="login.php" method="post">
+      <input type="text" name="id_number" placeholder="Enter your ID number" required>
+      <input type="password" name="password" placeholder="Enter your password" required>
+      <button type="submit">Login</button>
+
+      <div class="links">
+        <a href="forgot-password.php">Forgot Password?</a>
+        <a href="register.html">No account? Register</a>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

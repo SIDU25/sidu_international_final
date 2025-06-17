@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIDU - Loan Application</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('bestsidu.jpeg') no-repeat center center/cover;
+      color: #333;
+    }
+    header {
+      background-color: #0099cc;
+      color: white;
+      padding: 30px 10px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      font-style: italic;
+      color: #ffd700;
+      font-weight: bold;}
+    nav {
+      font-family: Arial, sans-serif;
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #006699;
+      color: white;
+      flex-wrap: wrap;
+    }
+    .nav-container .logo-text {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    .nav-toggle {
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: white;
+      display: none;
+      cursor: pointer;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: #ffd700;
+      background-color: rgba(255, 215, 0, 0.2);
+    }
+    @media (max-width: 200px) {
+      .nav-toggle {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #005580;
+        padding: 10px 0;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .nav-links a {
+        padding: 12px 0;
+        font-size: 1.1rem;
+        border-radius: 0;
+      }
+    }
+
+    /* Fade Transition Hero Section */
+    .hero-fade {
+      position: relative;
+      height: 400px;
+      width: 300;
+      background-color: #1e70c2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .fade-slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .fade-slide.active {
+      opacity: 1;
+      position: relative;
+    }
+    .hero-fade .slide-content {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px 40px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 90%;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .hero-fade .slide-content h2 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+    .hero-fade .slide-content p {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: #ffd700;
+    }
+    .glow-button {
+      display: inline-block;
+      background: linear-gradient(90deg, #0073e6, #00b3ff);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 0 8px #00b3ff;
+      transition: box-shadow 0.3s ease;
+    }
+    .glow-button:hover {
+      box-shadow: 0 0 20px #00e5ff;
+    }
+ @keyframes slide {
+      0% { margin-left: 0%; }
+      33% { margin-left: -100%; }
+      66% { margin-left: -200%; }
+      100% { margin-left: 0%; }
+    }
+     section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .cta-card {
+      width: 280px;
+      border-radius: 10px;
+      background: linear-gradient(to bottom right, #ccd0d1, #ffd700);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      overflow: hidden;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+    .cta-card:hover {
+      transform: scale(1.03);
+    }
+    .cta-card img {
+      width: 90%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .cta-content {
+      padding: 15px;
+      color: white;
+    }
+    .cta-content h3 {
+      margin-top: 0;
+    }
+    .cta-content p {
+      font-size: 0.95rem;
+    }
+    .cta-content a {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: white;
+      color: #0099cc;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .cta-content a:hover {
+      background-color: #006699;
+      color: white;
+    }
+    .stat-box {
+      background: linear-gradient(to top right, #6dcc00, #ffd700);
+      color: white;
+      border-radius: 10px;
+      padding: 30px;
+      width: 200px;
+      margin: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .stat-box h3 {
+      margin-bottom: 10px;
+    }
+    .stat-box p {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .customers img {
+      height: 160px;
+      margin: 10px;
+    }
+    .news {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    .news-card {
+      width: 300px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin: 20px;
+      overflow: hidden;
+    }
+    .news-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+    .news-card div {
+      padding: 15px;
+    }
+    .news-card h4 {
+      color: #0099cc;
+    }
+    .whatsapp {
+      background: green;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .product-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .product-card {
+      width: 250px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+    .product-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .product-card h4 {
+      color: #0077aa;
+      margin: 15px 0 5px 0;
+    }
+    .product-card p {
+      padding: 0 15px 15px;
+      font-size: 0.95rem;
+    }
+    .core-values-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .core-value {
+      width: 200px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .core-value:hover {
+      transform: translateY(-10px);
+    }
+    .core-value img {
+      width: 200px;
+      height: 200px;
+      margin-bottom: 15px;
+    }
+    .core-value h4 {
+      color: #0099cc;
+      margin-bottom: 10px;
+    }
+    .core-value p {
+      font-size: 0.95rem;
+    }
+    footer {
+      background-color: #003f66;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+    }
+    footer input, footer textarea {
+      width: 30%;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: none;
+      font-family: inherit;
+    }
+    footer button {
+      background-color: #ffd700;
+      border: none;
+      padding: 20px 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    @media (max-width: 708px) {
+      .slides { flex-direction: column; height: auto; }
+      .slide { height: 500px; }
+      .cta-card, .stat-box, .news-card, .core-value { width: 90%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <span class="logo-text">SIDU</span>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="product.html">Products</a>
+        <a href="terms.html">Terms</a>
+        <a href="faqs.html">Faqs</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="register.html">Register</a>
+        <a href="login.html">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Fade Section -->
+  <section class="hero-fade" aria-label="Main hero section with rotating slides">
+    <div class="fade-slide active">
+      <div class="slide-content">
+        <h2>Fast, Reliable Business Loans</h2>
+        <p>Grow your business with flexible terms</p>
+        <a href="register.html" class="glow-button">Apply Now</a>
+      </div>
+    </div>
+    <div class="fade-slide">
+      <div class="slide-content">
+        <h2>Emergency Loans When You Need Them</h2>
+        <p>Quick support in urgent times</p>
+        <a href="emergency-loan.html" class="glow-button">Get Help</a>
+      </div>
+    </div>
+    <div class="fade-slide">
+      <div class="slide-content">
+        <h2>Flexible Loan Solutions for Everyone</h2>
+        <p>Affordable payments and fast approvals</p>
+        <a href="about.html" class="glow-button">Learn More</a>
+      </div>
+    </div>
+  </section>
+ <section>
+    <h2>Our Mission and Vision </h2>
+    <p><strong>“Bridging the Growth you can't acquire on your own.”</strong></p>
+    <p><strong>“To serve and develop members through  provision of sustainable and affordable financial service.”</strong></p>
+   
+    <div class="cta-buttons"></div>
+  </section>
+  <section>
+    <h2>Our Core Values</h2>
+    <div class="core-values-grid">
+      <div class="core-value">
+        <img src="hr.jpeg" alt="Integrity">
+        <h4>Integrity</h4>
+        <p>We uphold the highest standards of honesty and transparency in all our operations and interactions.</p>
+      </div>
+      <div class="core-value">
+        <img src="machinery.jpeg" alt="Innovation">
+        <h4>Innovation</h4>
+        <p>We embrace creativity and innovation to deliver unique and value-driven financial solutions.</p>
+      </div>
+      <div class="core-value">
+        <img src="join2.jpeg" alt="Customer Focus">
+        <h4>Customer Focus</h4>
+        <p>Our customers are at the heart of everything we do, driving our purpose and decisions.</p>
+      </div>
+      <div class="core-value">
+        <img src="homebg.jpeg" alt="Teamwork">
+        <h4>Teamwork</h4>
+        <p>We believe in the power of working together to achieve common goals and empower one another.</p>
+      </div>
+      <div class="core-value">
+        <img src="slide1.jpeg" alt="Accountability">
+        <h4>Accountability</h4>
+        <p>We take responsibility for our actions and deliver on our commitments with excellence.</p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>Sidu Products</h2>
+    <div class="product-cards">
+      <div class="product-card">
+        <img src="soko.jpg" alt="SME Loans">
+        <h4>SME Loans</h4>
+        <p>Quick & flexible loans for your small and growing business. Fuel your success.</p>
+      </div>
+      <div class="product-card">
+        <img src="logbook.jpg" alt="Logbook Loans">
+        <h4>Logbook Loans</h4>
+        <p>Own a car? Access fast cash with your logbook. Drive your financial goals.</p>
+      </div>
+      <div class="product-card">
+        <img src="title.png" alt="Title Deed Loans">
+        <h4>Title Deed Loans</h4>
+        <p>Unlock your land’s value with easy secured loans at Sidu.</p>
+      </div>
+      <div class="product-card">
+        <img src="skel.jpg" alt="Emergency Loans">
+        <h4>construction Loans</h4>
+        <p>
+Build your dream with confidence.
+Our Construction Loan is designed to help you finance the construction of residential, commercial, or mixed-use buildings.</p>
+      </div>
+    </div>
+  </section>
+   <section>
+    <h2>SIDU International Ltd Insights</h2>
+    <div class="news">
+      <div class="news-card">
+        <img src="smes.jpeg" alt="Savings">
+        <div>
+          <h4>Power of Saving</h4>
+          <p>Saving provides a safety net and opens doors to investment. Build your future!</p>
+        </div>
+      </div>
+      <div class="news-card">
+        <img src="slide3.jpeg" alt="SIDU Advantage">
+        <div>
+          <h4>Why Sidu?</h4>
+          <p>Flexible loans, strong returns, trusted growth. Choose SIDU.</p>
+        </div>
+      </div>
+      <div class="news-card">
+        <img src="sidulogo1.jpeg" alt="Smart Investing">
+        <div>
+          <h4>Smart Financial Moves</h4>
+          <p>Invest with SIDU and enjoy strong returns with financial mentorship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<section>
+    <h2>Our Esteemed Partners</h2>
+    <div class="customers">
+      <img src="digro.jpg" alt="Digro">
+      <img src="sidulogo1.jpeg" alt="Sidu">
+      <img src="temasa.jpeg" alt="Temasa">
+      <img src="coop.jpg" alt="Coop Bank">
+    </div>
+  </section>
+   <footer>
+    <p><strong>Opening Hours:</strong> Monday – Saturday: 8AM – 7PM</p>
+    <p>Kiambu – Indian Bazaar Old Kanu House</p>
+    <p>Kiserian – Toiyanka Building Room 41 & 42</p>
+    <p><strong>Need Help?</strong></p>
+    <p>Call Us: <a href="tel:+254714175910" style="color:gold;">+254 714 175 910</a></p>
+    <p>Email: <a href="mailto:siduinternational@gmail.com" style="color:gold;">siduinternational@gmail.com</a></p>
+    <p>Website: <a href="http://www.siduinternational.com" style="color:gold;">www.siduinternational.com</a></p>
+    <a href="https://wa.me/254714175910" class="whatsapp">Chat with Us on WhatsApp</a>
+
+    <!-- Comment Section -->
+    <h3 style="margin-top:40px;">Leave a Comment</h3>
+    <form>
+      <input type="text" placeholder="Your Name" required><br>
+      <input type="email" placeholder="Your Email" required><br>
+      <textarea rows="4" placeholder="Your Message"></textarea><br>
+      <button type="submit">Send</button>
+    </form>
+  </footer>
+
+  <script>
+    // Toggle menu on mobile
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('show');
+    }
+
+    // Fade transition logic
+    let current = 0;
+    const slides = document.querySelectorAll('.fade-slide');
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000);
+  </script>
+</body>
+</html>

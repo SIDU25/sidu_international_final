@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emergency / Personal Loans - SIDU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('emergency.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      color: #333;
+      animation: fadeIn 1s ease-in;
+    }
+    header {
+      background-color: #045eab;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    section {
+      background-color: rgba(255, 255, 255, 0.9);
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.15);
+      animation: slideUp 1s ease-in-out;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: goldenrod;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #003f66;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    @keyframes slideUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Emergency / Personal Loans</h1>
+    <p>Quick support for life’s emergencies</p>
+  </header>
+
+  <section>
+    <h2>Loan Details</h2>
+    <p>For school fees, hospital bills, or urgent needs. No collateral needed.</p>
+    <ul>
+      <li>Loan range: Ksh 5,000 – 200,000</li>
+      <li>Interest: <strong>12% monthly</strong></li>
+      <li>Instant approval after verification</li>
+    </ul>
+
+    <h3>Loan Calculator</h3>
+    <input type="number" id="amount" placeholder="Enter amount">
+    <input type="number" id="months" placeholder="Months to repay">
+    <button onclick="calculate()">Calculate</button>
+    <div id="result"></div>
+  </section>
+
+  <footer>
+    &copy; 2025 SIDU International Ltd — “The wicked borrow, but do not repay.” Psalm 37:21<br>
+    <em>Bridging the growth you can’t acquire on your own</em>
+  </footer>
+
+  <script>
+    function calculate() {
+      let amount = parseFloat(document.getElementById("amount").value);
+      let months = parseInt(document.getElementById("months").value);
+      const rate = 12;
+      if (!amount || !months) {
+        return document.getElementById("result").innerHTML = "Fill all fields.";
+      }
+      let interest = (amount * rate / 100) * months;
+      let total = amount + interest;
+      let monthly = total / months;
+      document.getElementById("result").innerHTML = `
+        <p><strong>Total Interest:</strong> Ksh ${interest.toFixed(2)}</p>
+        <p><strong>Total Payable:</strong> Ksh ${total.toFixed(2)}</p>
+        <p><strong>Monthly Payment:</strong> Ksh ${monthly.toFixed(2)}</p>`;
+    }
+  </script>
+</body>
+</html>

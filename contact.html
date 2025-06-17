@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us - Sidu International</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f0faff;
+      color: #222;
+    }
+
+    header {
+      background: #0099cc;
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      font-style: italic;
+      color: #ffd700;
+    }
+
+    .contact-section {
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .info-box {
+      flex: 1;
+      background: white;
+      padding: 20px;
+      border-left: 5px solid goldenrod;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .info-box h3 {
+      color: #0077aa;
+      margin-top: 0;
+    }
+
+    .info-box p {
+      margin: 5px 0;
+    }
+
+    .info-box i {
+      color: goldenrod;
+      margin-right: 8px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      margin: 15px 0;
+      border: none;
+    }
+
+    .slides {
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+      height: 250px;
+      position: relative;
+      margin: 40px 0;
+    }
+
+    .slide-track {
+      display: flex;
+      width: 300%;
+      animation: slide 15s infinite;
+    }
+
+    .slide {
+      flex: 1;
+      min-width: 100%;
+      padding: 40px;
+      background: linear-gradient(to right, #e0f7ff, #dbefff);
+      color: #333;
+      text-align: center;
+    }
+
+    .slide h2 {
+      color: #0077aa;
+    }
+
+    @keyframes slide {
+      0% { margin-left: 0%; }
+      33% { margin-left: -100%; }
+      66% { margin-left: -200%; }
+      100% { margin-left: 0%; }
+    }
+
+    .chatbox {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      border: 2px solid #0077aa;
+      border-radius: 10px;
+      padding: 10px;
+      width: 250px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .chatbox h4 {
+      margin: 0 0 10px;
+      color: #0077aa;
+    }
+
+    footer {
+      background: #003f66;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    a {
+      color: #0099cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media(max-width: 768px) {
+      .info {
+        flex-direction: column;
+      }
+
+      .chatbox {
+        right: 10px;
+        bottom: 10px;
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Contact Sidu International Ltd</h1>
+  <p>“Bridging the growth you can't acquire on your own”</p>
+</header>
+
+<div class="contact-section">
+  <div class="info">
+    <div class="info-box">
+      <h3>📍 Kiserian Office</h3>
+      <p>Toiyanka Building, Room 41 & 42</p>
+      <p>Kiserian Town, Kenya</p>
+    </div>
+    <div class="info-box">
+      <h3>📍 Kiambu Office</h3>
+      <p>Indian Bazaar, Old Kanu House</p>
+      <p>400m from Prisons, Kiambu, Kenya</p>
+    </div>
+    <div class="info-box">
+      <h3>📞 Contact</h3>
+      <p><i>📱</i> <a href="tel:+254714175910">+254 714 175910</a></p>
+      <p><i>💬</i> <a href="https://wa.me/254714175910" target="_blank">WhatsApp</a></p>
+      <p><i>🌐</i> <a href="http://www.siduinternational.com" target="_blank">www.siduinternational.com</a></p>
+    </div>
+  </div>
+
+  <iframe src="https://maps.google.com/maps?q=Kiserian%20Toiyanka%20Building&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+  <iframe src="https://maps.google.com/maps?q=Kiambu%20Indian%20Bazaar&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+
+  <div class="slides">
+    <div class="slide-track">
+      <div class="slide">
+        <h2>Why Contact SIDU?</h2>
+        <p>We offer fast, reliable loan processing, friendly customer service, and tailor-made financial solutions.</p>
+      </div>
+      <div class="slide">
+        <h2>Invest With Confidence</h2>
+        <p>Enjoy stable returns and secure your future through our transparent investment plans.</p>
+      </div>
+      <div class="slide">
+        <h2>Chama Savings = Smart Future</h2>
+        <p>Group savings grow faster. Repay loans on time to build trust, increase limits, and access better terms.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="chatbox">
+  <h4>Need Help?</h4>
+  <p>Click <a href="https://wa.me/254714175910" target="_blank">here</a> to chat on WhatsApp or call <a href="tel:+254714175910">0714 175910</a></p>
+</div>
+
+<footer>
+  &copy; 2025 Sidu International Ltd. All Rights Reserved.
+</footer>
+
+</body>
+</html>

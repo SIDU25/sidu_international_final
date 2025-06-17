@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apply for Loan</title>
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      font-size: 11pt;
+      margin: 40px;
+    }
+    .page { display: none; }
+    .page.active { display: block; }
+    .line {
+      display: inline-block;
+      border-bottom: 1px solid #000;
+      min-width: 150px;
+      margin: 0 6px;
+    }
+    input[type="text"], input[type="file"] {
+      border: none;
+      border-bottom: 1px solid #000;
+      font-size: 11pt;
+    }
+    img.preview-img {
+      display: none;
+      width: 120px;
+      height: auto;
+      margin-top: 5px;
+      border: 1px solid #000;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 6px;
+      font-size: 11pt;
+    }
+    button {
+      margin-top: 20px;
+      padding: 8px 16px;
+      font-size: 11pt;
+    }
+    .navigation-buttons {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+<form method="POST" action="submit_loan.php" enctype="multipart/form-data">
+  <!-- Page 1 -->
+  <div class="page active">
+    <h3>Upload Passport Photo:</h3>
+    <input type="file" name="passport_photo" accept="image/*" onchange="previewImage(this, 'passportPreview')" required />
+    <br />
+    <img id="passportPreview" class="preview-img" />
+    <p><strong>NO.</strong> <input type="text" name="form_no" required> &nbsp;&nbsp; <strong>Date:</strong> <input type="text" name="form_date" required></p>
+    <h3>APPLICANT’S PARTICULARS</h3>
+    <p>Applicants Name: <input type="text" name="applicant_name" required></p>
+    <p>ID No. / Passport No: <input type="text" name="id_number" required> Nationality: <input type="text" name="nationality" required> Town: <input type="text" name="town" required></p>
+    <p>Phone No: <input type="text" name="phone" required> Alternative No: <input type="text" name="alt_phone" required> Email: <input type="text" name="email" required></p>
+    <p>Marital status: <input type="text" name="marital_status" required> Name of Spouse: <input type="text" name="spouse_name" required> ID No: <input type="text" name="spouse_id" required></p>
+    <p>Spouse Phone No: <input type="text" name="spouse_phone" required> Alternative No: <input type="text" name="spouse_alt" required></p>
+    <p>Applicant Signature: <input type="text" name="applicant_signature" required></p>
+
+    <h3>RESIDENTIAL DETAILS</h3>
+    <p>Location: <input type="text" name="res_location" required> Plot No / Name: <input type="text" name="res_plot" required> House No: <input type="text" name="res_house" required></p>
+    <p>Nearest Landmark: <input type="text" name="res_landmark" required> Gate Colour: <input type="text" name="res_gate_color" required></p>
+
+    <h3>BUSINESS INFORMATION</h3>
+    <p>Business Ownership: Family Business □ Sole Proprietorship □ Partnership □ Limited Company □</p>
+    <p>Name of the Business: <input type="text" name="business_name" required> Years in Operation: <input type="text" name="years_operation" required></p>
+    <p>Registration No: <input type="text" name="reg_no" required> Licence No: <input type="text" name="license_no" required> Mode: Retail □ Wholesale □</p>
+    <p>Business Location: <input type="text" name="biz_location" required> Nearest Landmark: <input type="text" name="biz_landmark" required></p>
+    <p>Business Value: <input type="text" name="biz_value" required> Daily Income: <input type="text" name="daily_income" required></p>
+
+    <h3>LOAN DETAILS</h3>
+    <p>Loan Amount Requested: <input type="text" name="loan_amount" required> In Words: <input type="text" name="amount_words" required></p>
+    <p>Purpose of the Loan: <input type="text" name="loan_purpose" required></p>
+    <p>Interest Rate (%): <input type="text" name="interest_rate" required> Max Repayment Period: <input type="text" name="repayment_period" required></p>
+    <p>Repayment Plan: <input type="text" name="repayment_plan" required> Signature of acceptance: <input type="text" name="acceptance_signature" required></p>
+    <p>Collateral Description: <input type="text" name="collateral_desc" required></p>
+
+    <h3>OFFICE APPROVAL (ONLY)</h3>
+    <p>Approved Amount: <input type="text" name="approved_amount"> Date Approved: <input type="text" name="date_approved"> Date Disbursed: <input type="text" name="date_disbursed"></p>
+    <p>Mode: Cheque □ M-PESA □ Ref No: <input type="text" name="ref_no"> M-PESA No: <input type="text" name="mpesa_no"></p>
+    <p>Loan Officer Name: <input type="text" name="officer_name"> Designation: <input type="text" name="officer_designation"> Signature: <input type="text" name="officer_signature"></p>
+
+    <div class="navigation-buttons">
+      <button type="button" onclick="nextPage()">Next Page</button>
+    </div>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page">
+    <h3>TERMS AND CONDITIONS</h3>
+    <p>1. This loan is secured by the applicant’s business located at <input type="text" name="secured_business_location" required>.</p>
+    <p>Additionally household items: <input type="text" name="household_items" required>.</p>
+    <p>7. The borrower shall repay the loan on installments of <input type="text" name="installments_name" required> per <input type="text" name="day_name" required>.</p>
+    <p>9. If the borrower fails to repay for <input type="text" name="days_name" required> consecutive weeks...</p>
+
+    <h3>APPLICANT DECLARATION</h3>
+    <p>I <input type="text" name="declaration_name" required> hereby declare the information is true...</p>
+    <p>Signature: <input type="text" name="declaration_signature" required> ID No: <input type="text" name="declaration_id" required> Date: <input type="text" name="declaration_date" required></p>
+
+    <h3>GUARANTOR DECLARATION</h3>
+    <table>
+      <tr><th>No</th><th>Name</th><th>ID</th><th>Phone</th><th>Relationship</th><th>Signature</th></tr>
+      <tr>
+        <td>1</td>
+        <td><input type="text" name="guarantor1_name" required></td>
+        <td><input type="text" name="guarantor1_id" required></td>
+        <td><input type="text" name="guarantor1_phone" required></td>
+        <td><input type="text" name="guarantor1_relation" required></td>
+        <td><input type="text" name="guarantor1_signature" required></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><input type="text" name="guarantor2_name" required></td>
+        <td><input type="text" name="guarantor2_id" required></td>
+        <td><input type="text" name="guarantor2_phone" required></td>
+        <td><input type="text" name="guarantor2_relation" required></td>
+        <td><input type="text" name="guarantor2_signature" required></td>
+      </tr>
+    </table>
+
+    <div class="navigation-buttons">
+      <button type="button" onclick="prevPage()">Previous Page</button>
+      <button type="submit">Submit Application</button>
+    </div>
+  </div>
+</form>
+
+<script>
+  function nextPage() {
+    const pages = document.querySelectorAll('.page');
+    pages[0].classList.remove('active');
+    pages[1].classList.add('active');
+  }
+  function prevPage() {
+    const pages = document.querySelectorAll('.page');
+    pages[1].classList.remove('active');
+    pages[0].classList.add('active');
+  }
+  function previewImage(input, imgID) {
+    const file = input.files[0];
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = document.getElementById(imgID);
+      img.src = e.target.result;
+      img.style.display = 'block';
+    };
+    if (file) reader.readAsDataURL(file);
+  }
+</script>
+</body>
+</html>

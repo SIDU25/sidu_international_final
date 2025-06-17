@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - SIDU International</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('phone.jpg') no-repeat center center fixed;
+      background-size: cover;
+      padding: 50px 20px;
+      color: #fff;
+      position: relative;
+    }
+    .summary {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      background: rgba(0,0,0,0.5);
+      padding: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .summary-slide {
+      display: none;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    .summary-slide.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    }
+    h2 {
+      text-align: center;
+      color: gold;
+      margin-bottom: 20px;
+    }
+    .input-group {
+      margin-bottom: 15px;
+    }
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #ffd700;
+      font-size: 14px;
+    }
+    input[type="text"], input[type="tel"], input[type="password"] {
+      width: 100%; padding: 12px; 
+      border-radius: 6px; border: none; background: #f7f7f7;
+      color: #333; font-size: 15px;
+    }
+    input[type="text"]:focus, input[type="tel"]:focus, input[type="password"]:focus {
+      outline: none; box-shadow: 0 0 10px #00bfff;
+    }
+    .input-help {
+      font-size: 12px;
+      color: #ccc;
+      margin-top: 3px;
+    }
+    button {
+      width: 100%; margin-top: 25px; padding: 12px;
+      background: goldenrod; color: white; border: none;
+      font-size: 16px; font-weight: bold; border-radius: 6px;
+      cursor: pointer; transition: background 0.3s, box-shadow 0.3s;
+    }
+    button:hover {
+      background: #ffcc00; box-shadow: 0 0 15px #ffcc00;
+    }
+    button:active {
+      transform: scale(0.98);
+    }
+    button:disabled {
+      background: #666;
+      cursor: not-allowed;
+    }
+    .spinner {
+      display: none;
+      margin-top: 10px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .terms {
+      margin-top: 15px;
+    }
+    .terms a {
+      color: #ffd700;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background: #fff;
+      color: #333;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%; max-width: 600px;
+      position: relative;
+    }
+    .close {
+      position: absolute; right: 20px; top: 15px;
+      font-size: 24px; cursor: pointer; color: red;
+    }
+    .error {
+      color: #ff6b6b;
+      font-size: 12px;
+      margin-top: 3px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="summary">
+  <div class="summary-slide active">✅ <strong>Secure Your Growth:</strong> Access flexible loans tailored to your business potential.</div>
+  <div class="summary-slide">🚀 <strong>Grow With Us:</strong> Quick approvals, daily repayment, and trusted support from SIDU.</div>
+  <div class="summary-slide">🛡️ <strong>You're Covered:</strong> We stand by hardworking entrepreneurs like you.</div>
+</div>
+
+<form id="registerForm" action="register.php" method="post" onsubmit="return validateForm()">
+  <h2>Register Now</h2>
+  
+  <div class="input-group">
+    <label for="full_name">Full Name</label>
+    <input type="text" name="full_name" id="full_name" placeholder="Enter your full name as per ID" required>
+  </div>
+
+  <div class="input-group">
+    <label for="phone">Phone Number</label>
+    <input type="tel" name="phone" id="phone" placeholder="0712345678 or +254712345678" required>
+    <div class="input-help">Enter your Kenyan mobile number</div>
+    <div class="error" id="phone-error">Please enter a valid Kenyan phone number</div>
+  </div>
+
+  <div class="input-group">
+    <label for="id_number">National ID or Passport Number</label>
+    <input type="text" name="id_number" id="id_number" placeholder="12345678 or A1234567" required>
+    <div class="input-help">8-digit National ID or Passport number</div>
+    <div class="error" id="id-error">Please enter a valid 8-digit National ID or Passport number</div>
+  </div>
+
+  <div class="input-group">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" placeholder="Create a secure password" required>
+    <div class="input-help">Minimum 6 characters</div>
+    <div class="error" id="password-error">Password must be at least 6 characters</div>
+  </div>
+
+  <div class="input-group">
+    <label for="confirm_password">Confirm Password</label>
+    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm your password" required>
+    <div class="error" id="confirm-password-error">Passwords do not match</div>
+  </div>
+
+  <div class="terms">
+    <input type="checkbox" id="agree" required>
+    <label for="agree">I agree to the <a onclick="openModal()">Terms and Conditions</a></label>
+  </div>
+
+  <button type="submit" id="submitBtn">Register (Ksh 500)</button>
+  <div class="spinner" id="loadingSpinner"></div>
+</form>
+
+<div id="termsModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3>SIDU Loan Terms</h3>
+    <ol>
+      <li>Loan secured by your business value/assets.</li>
+      <li>Defaults over 2 weeks may result in repossession.</li>
+      <li>Ksh 500 processing fee applies before disbursement.</li>
+      <li>10% interest monthly, max 2-month term.</li>
+      <li>Ksh 50/day penalty for missed daily payments.</li>
+      <li>Loan not to exceed 30% of your business value.</li>
+    </ol>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById("termsModal").style.display = "block";
+  }
+  function closeModal() {
+    document.getElementById("termsModal").style.display = "none";
+  }
+  window.onclick = function(event) {
+    const modal = document.getElementById("termsModal");
+    if (event.target === modal) modal.style.display = "none";
+  }
+
+  // Slide summary every 5 seconds
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".summary-slide");
+  setInterval(() => {
+    slides[slideIndex].classList.remove("active");
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].classList.add("active");
+  }, 5000);
+
+  // Real-time validation
+  document.getElementById('phone').addEventListener('input', function() {
+    const phone = this.value;
+    const phoneRegex = /^(07|01|\+254)[0-9]{8,9}$/;
+    const error = document.getElementById('phone-error');
+    
+    if (phone && !phoneRegex.test(phone)) {
+      error.style.display = 'block';
+      this.style.borderColor = '#ff6b6b';
+    } else {
+      error.style.display = 'none';
+      this.style.borderColor = '';
+    }
+  });
+
+  document.getElementById('id_number').addEventListener('input', function() {
+    const idNumber = this.value;
+    const idRegex = /^(\d{8}|[A-Z]{1,2}\d{6,8})$/;
+    const error = document.getElementById('id-error');
+    
+    if (idNumber && !idRegex.test(idNumber)) {
+      error.style.display = 'block';
+      this.style.borderColor = '#ff6b6b';
+    } else {
+      error.style.display = 'none';
+      this.style.borderColor = '';
+    }
+  });
+
+  document.getElementById('password').addEventListener('input', function() {
+    const password = this.value;
+    const error = document.getElementById('password-error');
+    
+    if (password && password.length < 6) {
+      error.style.display = 'block';
+      this.style.borderColor = '#ff6b6b';
+    } else {
+      error.style.display = 'none';
+      this.style.borderColor = '';
+    }
+  });
+
+  document.getElementById('confirm_password').addEventListener('input', function() {
+    const password = document.getElementById('password').value;
+    const confirmPassword = this.value;
+    const error = document.getElementById('confirm-password-error');
+    
+    if (confirmPassword && password !== confirmPassword) {
+      error.style.display = 'block';
+      this.style.borderColor = '#ff6b6b';
+    } else {
+      error.style.display = 'none';
+      this.style.borderColor = '';
+    }
+  });
+
+  function validateForm() {
+    const phone = document.getElementById('phone').value;
+    const idNumber = document.getElementById('id_number').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm_password').value;
+    
+    const phoneRegex = /^(07|01|\+254)[0-9]{8,9}$/;
+    const idRegex = /^(\d{8}|[A-Z]{1,2}\d{6,8})$/;
+    
+    if (!phoneRegex.test(phone)) {
+      alert('Please enter a valid Kenyan phone number');
+      return false;
+    }
+    
+    if (!idRegex.test(idNumber)) {
+      alert('Please enter a valid 8-digit National ID or Passport number');
+      return false;
+    }
+    
+    if (password.length < 6) {
+      alert('Password must be at least 6 characters');
+      return false;
+    }
+    
+    if (password !== confirmPassword) {
+      alert('Passwords do not match');
+      return false;
+    }
+    
+    // Show spinner
+    document.getElementById('loadingSpinner').style.display = 'block';
+    document.getElementById('submitBtn').disabled = true;
+    
+    return true;
+  }
+</script>
+
+</body>
+</html>

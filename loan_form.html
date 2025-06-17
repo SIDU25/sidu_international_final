@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Application - Sidu International Ltd</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: url('sidu.jpeg') center center no-repeat;
+      background-size: 400px;
+      background-attachment: fixed;
+      background-position: center;
+      opacity: 0.98;
+    }
+    .container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 20px 40px;
+      border-radius: 10px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2, h3 {
+      color: #004a80;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 20px;
+      background-color: #0077b6;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005f8a;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Sidu International Ltd</h2>
+    <p><strong>Slogan:</strong> Bridging the growth you can't acquire on your own</p>
+    <p><strong>Location:</strong> Kiambu Indian Bazaar and Toiyanka Building Room 41 & 42, Kiserian</p>
+    <p><strong>Website:</strong> www.siduinternational.com | <strong>Email:</strong> office@sidu.com | <strong>Phone:</strong> 0714175910</p>
+    <hr>
+
+    <form id="loanForm">
+      <div class="section">
+        <h3>APPLICANT’S PARTICULARS</h3>
+        <label>Applicant's Name</label>
+        <input type="text" name="applicant_name">
+
+        <label>ID/Passport No.</label>
+        <input type="text" name="id_no">
+
+        <label>Nationality</label>
+        <input type="text" name="nationality">
+
+        <label>Town</label>
+        <input type="text" name="town">
+
+        <label>Phone No.</label>
+        <input type="text" name="phone">
+
+        <label>Alternative No.</label>
+        <input type="text" name="alt_phone">
+
+        <label>Email</label>
+        <input type="email" name="email">
+
+        <label>Marital Status</label>
+        <input type="text" name="marital_status">
+
+        <label>Spouse Name</label>
+        <input type="text" name="spouse_name">
+
+        <label>Spouse ID No.</label>
+        <input type="text" name="spouse_id">
+
+        <label>Spouse Phone No.</label>
+        <input type="text" name="spouse_phone">
+      </div>
+
+      <div class="section">
+        <h3>RESIDENTIAL DETAILS</h3>
+        <label>Location</label>
+        <input type="text" name="residence_location">
+
+        <label>Plot No / House Name</label>
+        <input type="text" name="plot">
+
+        <label>House No.</label>
+        <input type="text" name="house_no">
+
+        <label>Nearest Landmark</label>
+        <input type="text" name="landmark">
+
+        <label>Gate Colour</label>
+        <input type="text" name="gate_color">
+      </div>
+
+      <div class="section">
+        <h3>BUSINESS INFORMATION</h3>
+        <label>Business Ownership</label>
+        <select name="ownership">
+          <option>Family Business</option>
+          <option>Sole Proprietorship</option>
+          <option>Partnership</option>
+          <option>Limited Company</option>
+        </select>
+
+        <label>Business Name</label>
+        <input type="text" name="business_name">
+
+        <label>Years in Operation</label>
+        <input type="text" name="years_operation">
+
+        <label>Registration No.</label>
+        <input type="text" name="reg_no">
+
+        <label>License No.</label>
+        <input type="text" name="license_no">
+
+        <label>Mode</label>
+        <select name="mode">
+          <option>Retail</option>
+          <option>Wholesale</option>
+        </select>
+
+        <label>Business Location</label>
+        <input type="text" name="biz_location">
+
+        <label>Nearest Landmark</label>
+        <input type="text" name="biz_landmark">
+
+        <label>Estimated Business Value (Ksh)</label>
+        <input type="text" name="biz_value">
+
+        <label>Daily Income (Ksh)</label>
+        <input type="text" name="daily_income">
+      </div>
+
+      <div class="section">
+        <h3>LOAN DETAILS</h3>
+        <label>Loan Amount Requested (Ksh)</label>
+        <input type="text" name="loan_amount">
+
+        <label>In Words</label>
+        <input type="text" name="loan_amount_words">
+
+        <label>Purpose of Loan</label>
+        <textarea name="loan_purpose"></textarea>
+
+        <label>Interest Rate (% per month)</label>
+        <input type="text" name="interest_rate">
+
+        <label>Repayment Period</label>
+        <input type="text" name="repayment_period">
+
+        <label>Repayment Plan</label>
+        <textarea name="repayment_plan"></textarea>
+
+        <label>Additional Collateral (Description)</label>
+        <textarea name="collateral"></textarea>
+      </div>
+
+      <button type="button" onclick="window.print()">Print / Save as PDF</button>
+    </form>
+  </div>
+</body>
+</html>

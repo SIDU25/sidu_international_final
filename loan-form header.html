@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SIDU International Loan Form - Page 1</title>
+  <style>
+    body {
+      font-family: "Times New Roman", Times, serif;
+      margin: 10px 30px;
+      font-size: 13px;
+      position: relative;
+    }
+
+    /* Watermark Styling */
+    .watermark {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 60px;
+      color: rgba(200, 200, 200, 0.15);
+      z-index: 0;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Form Styling */
+    h2 {
+      color: navy;
+      margin-bottom: 5px;
+      font-size: 15px;
+    }
+    .section-title {
+      color: navy;
+      font-weight: bold;
+      margin-top: 20px;
+      text-decoration: underline;
+    }
+    .form-row {
+      margin-bottom: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      z-index: 1;
+    }
+    .form-row label {
+      min-width: 130px;
+    }
+    .input-line {
+      border: none;
+      border-bottom: 1px solid black;
+      width: 140px;
+      font-size: 13px;
+      font-family: "Times New Roman", Times, serif;
+      background: transparent;
+      outline: none;
+      height: 16px;
+      margin-right: 20px;
+    }
+    .input-line.small {
+      width: 80px;
+    }
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .photo-preview {
+      width: 100px;
+      height: 120px;
+      border: 1px solid #000;
+      margin-bottom: 5px;
+      object-fit: cover;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+    }
+    .passport-section {
+      text-align: right;
+    }
+    .passport-section label {
+      display: block;
+      margin-top: 5px;
+      font-size: 12px;
+    }
+    .passport-section.hide-label label {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Watermark -->
+  <div class="watermark">SIDU INTERNATIONAL</div>
+
+  <!-- Top Row: Number and Passport Upload -->
+  <div class="header">
+    <div>
+      <p><strong>NO.</strong> <input class="input-line small" type="text">
+         <br><strong>Date:</strong> <input class="input-line small" type="text"></p>
+    </div>
+    <div class="passport-section" id="passportSection">
+      <img id="passportPreview" class="photo-preview" alt="Passport Photo Preview">
+      <label id="passportLabel"><strong>Upload Passport Photo:</strong>
+        <input type="file" accept="image/*" onchange="previewPassport(event)">
+      </label>
+    </div>
+  </div>
+
+  <!-- Keep all the rest of your form below this point unchanged -->
+
+  <script>
+    function previewPassport(event) {
+      const reader = new FileReader();
+      reader.onload = function(){
+        document.getElementById('passportPreview').src = reader.result;
+        document.getElementById('passportSection').classList.add("hide-label");
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  </script>
+
+</body>
+</html>

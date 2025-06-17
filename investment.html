@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Investments - SIDU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('invest.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      animation: fadeIn 1s ease-in;
+      color: #333;
+    }
+    header {
+      background-color: #008b8b;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    section {
+      background: rgba(255, 255, 255, 0.95);
+      margin: 40px auto;
+      padding: 30px;
+      max-width: 900px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+      animation: slideUp 1s ease-in-out;
+    }
+    .graph-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .graph-box {
+      background: #f5fefc;
+      border-left: 5px solid #00a38c;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    .graph-box h4 {
+      margin-top: 0;
+      color: #008b8b;
+    }
+    .graph-box p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .cta-button {
+      display: block;
+      margin: 40px auto 0;
+      padding: 15px 30px;
+      font-size: 16px;
+      background-color: #00a38c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .cta-button:hover {
+      background-color: #007c6e;
+    }
+    footer {
+      background-color: #003f66;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.95em;
+    }
+    @keyframes slideUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Invest with SIDU</h1>
+    <p>Grow your money with guaranteed returns</p>
+  </header>
+
+  <section>
+    <h2>Investment Opportunities</h2>
+    <p>SIDU International offers attractive investment plans with returns up to <strong>20% per annum</strong>.</p>
+    <ul>
+      <li>Minimum investment: Ksh 10,000</li>
+      <li>Duration: 12 months</li>
+      <li>Returns paid quarterly</li>
+      <li>Safe and transparent investment</li>
+    </ul>
+
+    <h3>Why Save and Invest with SIDU?</h3>
+    <div class="graph-summary">
+      <div class="graph-box">
+        <h4>📈 High Annual Returns</h4>
+        <p>Earn up to 20% interest per year — significantly higher than most traditional savings accounts or Saccos.</p>
+      </div>
+      <div class="graph-box">
+        <h4>🛡️ Secure & Transparent</h4>
+        <p>Your savings are handled with integrity, under clear terms. SIDU operates with full accountability and client trust.</p>
+      </div>
+      <div class="graph-box">
+        <h4>🎯 Build Financial Discipline</h4>
+        <p>Start a consistent saving culture today and develop future readiness for emergencies, opportunities or retirement.</p>
+      </div>
+      <div class="graph-box">
+        <h4>🚀 Access Future Loan Benefits</h4>
+        <p>Saving with SIDU improves your credibility and opens you up to easier loan approvals at reduced rates in the future.</p>
+      </div>
+    </div>
+
+    <a class="cta-button" href="register.html">Register and Start Saving</a>
+  </section>
+
+  <footer>
+    &copy; 2025 SIDU International Ltd — “The wicked borrow, but do not repay.” Psalm 37:21<br>
+    <em>Bridging the growth you can’t acquire on your own</em>
+  </footer>
+</body>
+</html>

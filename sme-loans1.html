@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SME Loans - Sidu International Ltd</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('smes.jpeg') no-repeat center center/cover;
+      color: #333;
+      animation: fadeIn 1.5s ease;
+    }
+
+    header {
+      background-color: rgba(0, 153, 204, 0.9);
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    section {
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.92);
+      margin: 30px auto;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      animation: slideUp 1s ease-out;
+    }
+
+    section h2 {
+      color: #0077b6;
+      margin-bottom: 10px;
+    }
+
+    section p {
+      line-height: 1.6;
+    }
+
+    .calculator {
+      margin-top: 30px;
+      padding: 20px;
+      border: 2px dashed #0077b6;
+      background-color: #f0faff;
+      border-radius: 10px;
+    }
+
+    .calculator input, .calculator select {
+      padding: 10px;
+      width: 100%;
+      margin: 10px 0;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .calculator button {
+      background: goldenrod;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      background: #003f66;
+      color: white;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SME Loans</h1>
+</header>
+
+<section>
+  <h2>Grow Your Business with SIDU SME Loans</h2>
+  <p>
+    SIDU offers tailored SME Loans (Biashara Loans) to help entrepreneurs expand, restock, or stabilize their small businesses.
+    Whether you're a kiosk owner, shopkeeper, hairdresser, or boda-boda rider — we have flexible terms for you.
+  </p>
+
+  <ul>
+    <li>Loan Amount: From Ksh 1,000 – 200,000</li>
+    <li>Monthly Interest Rate: 10%</li>
+    <li>Flexible repayment up to 2 months</li>
+    <li>Collateral required: ID + business ownership proof</li>
+  </ul>
+
+  <div class="calculator">
+    <h3>Loan Calculator</h3>
+    <label>Enter Loan Amount (Ksh):</label>
+    <input type="number" id="loanAmount" placeholder="e.g. 50000">
+
+    <label>Repayment Period (Months):</label>
+    <input type="number" id="repayMonths" placeholder="e.g. 6">
+
+    <button onclick="calculateLoan()">Calculate Repayment</button>
+
+    <div class="result" id="resultBox"></div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Sidu International Ltd - “Bridging the growth you can’t acquire on your own”
+</footer>
+
+<script>
+  function calculateLoan() {
+    let amount = parseFloat(document.getElementById('loanAmount').value);
+    let months = parseInt(document.getElementById('repayMonths').value);
+    let interestRate = 10; // for SME
+
+    if (!amount || !months || amount <= 0 || months <= 0) {
+      document.getElementById('resultBox').innerText = "Please enter valid loan details.";
+      return;
+    }
+
+    let totalInterest = (amount * (interestRate / 100)) * months;
+    let totalPayable = amount + totalInterest;
+    let monthlyPayment = totalPayable / months;
+
+    document.getElementById('resultBox').innerHTML =
+      `Total Interest: Ksh ${totalInterest.toFixed(2)}<br>
+       Monthly Payment: Ksh ${monthlyPayment.toFixed(2)}<br>
+       Total Payable: Ksh ${totalPayable.toFixed(2)}`;
+  }
+</script>
+
+</body>
+</html>

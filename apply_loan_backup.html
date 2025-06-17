@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply for Loan</title>
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      font-size: 11pt;
+      margin: 40px;
+    }
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+    }
+    .line {
+      display: inline-block;
+      border-bottom: 1px solid #000;
+      min-width: 150px;
+      margin: 0 6px;
+    }
+    input[type="text"], input[type="file"] {
+      border: none;
+      border-bottom: 1px solid #000;
+      font-size: 11pt;
+    }
+    img.preview-img {
+      display: none;
+      width: 120px;
+      height: auto;
+      margin-top: 5px;
+      border: 1px solid #000;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 6px;
+      font-size: 11pt;
+    }
+    button {
+      margin-top: 20px;
+      padding: 8px 16px;
+      font-size: 11pt;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 6px;
+      font-size: 11pt;
+    }
+    button {
+      margin-top: 20px;
+      padding: 8px 16px;
+      font-size: 11pt;
+    }
+    .navigation-buttons {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+<form method="POST" action="submit_loan.php" enctype="multipart/form-data">
+  <!-- Page 1 -->
+  <div class="page active">
+    <h3>Upload Passport Photo:</h3>
+    <input type="file" name="passport_photo" accept="image/*" onchange="previewImage(this, 'passportPreview')" required />
+    <br />
+    <img id="passportPreview" class="preview-img" />
+    <p><strong>NO.</strong> <span class="line"></span> &nbsp;&nbsp; <strong>Date:</strong> <span class="line"></span></p>
+    <h3>APPLICANT’S PARTICULARS</h3>
+    <p>Applicants Name: <span class="line" style="width:300px;"></span></p>
+    <p>ID No. / Passport No: <span class="line"></span> Nationality: <span class="line"></span> Town: <span class="line"></span></p>
+    <p>Phone No: <span class="line"></span> Alternative No: <span class="line"></span> Email: <span class="line" style="width:200px;"></span></p>
+    <p>Marital status: <span class="line"></span> Name of Spouse: <span class="line"></span> ID No: <span class="line"></span></p>
+    <p>Spouse Phone No: <span class="line"></span> Alternative No: <span class="line"></span></p>
+    <p>Applicant Signature: <span class="line"></span></p>
+    <h3>RESIDENTIAL DETAILS</h3>
+    <p>Location: <span class="line"></span> Plot No / Name: <span class="line"></span> House No: <span class="line"></span></p>
+    <p>Nearest Landmark: <span class="line"></span> Gate Colour: <span class="line"></span></p>
+    <h3>BUSINESS INFORMATION</h3>
+    <p>Business Ownership: Family Business □ Sole Proprietorship □ Partnership □ Limited Company □</p>
+    <p>Name of the Business: <span class="line" style="width:300px;"></span> Years in Operation: <span class="line"></span></p>
+    <p>Registration No: <span class="line"></span> Licence No: <span class="line"></span> Mode: Retail □ Wholesale □</p>
+    <p>Business Location: <span class="line"></span> Nearest Landmark: <span class="line"></span></p>
+    <p>Business Value: <span class="line"></span> Daily Income: <span class="line"></span></p>
+    <h3>LOAN DETAILS</h3>
+    <p>Loan Amount Requested: <span class="line"></span> In Words: <span class="line" style="width:300px;"></span></p>
+    <p>Purpose of the Loan: <span class="line" style="width:400px;"></span></p>
+    <p>Interest Rate (%): <span class="line"></span> Max Repayment Period: <span class="line"></span></p>
+    <p>Repayment Plan: <span class="line" style="width:300px;"></span> Signature of acceptance: <span class="line"></span></p>
+    <p>Collateral Description: <span class="line" style="width:400px;"></span></p>
+    <h3>OFFICE APPROVAL (ONLY)</h3>
+    <p>Approved Amount: <span class="line"></span> Date Approved: <span class="line"></span> Date Disbursed: <span class="line"></span></p>
+    <p>Mode: Cheque □ M-PESA □ Ref No: <span class="line"></span> M-PESA No: <span class="line"></span></p>
+    <p>Loan Officer Name: <span class="line"></span> Designation: <span class="line"></span> Signature: <span class="line"></span></p>
+    <div class="navigation-buttons">
+      <button type="button" onclick="nextPage()">Next Page</button>
+    </div>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page">
+    <h3>TERMS AND CONDITIONS</h3>
+    <p>1.This loan is secured by the applicant’s business located at <input type="text" name="secured_business_location">.</p>
+    <p>Additionally household items: <input type="text" name="household_items">.</p>
+    <p>2. The lender reserves the right to take possession of the business/ assets in case of  default without further notice.</p>
+  <p>   3. That SIDU INTERNATIONAL LTD  reserves the right to inspect the business premises and request any supporting documents necessary to verify business activity and ownership..</p>
+  <p>4. A fee of  Ksh500 will be deducted as loan application fee..</p>
+  <p>5. The applicable interest rate is 10% per month on reducing balance for a period of maximum 2 (two) months.</p>
+  <p>6. First month interest shall be deducted immediately after loan approval</p>
+  <p>7. The borrower shall repay the loan on  installments of<input type="text" name="installments_name">  per<input type="text" name="day_name"> as agreed. And MUST be paid from Monday to Saturday.  </p>
+  <p>8. Daily repayment default  shall attract a penalty of  Ksh50 per day.</p>
+  <p>9. If the borrower fails to repay for <input type="text" name="days_name"> consecutive weeks, the lender may liquidate the secured business/ assets immediately without  further reference to you and at your own cost.  </p>
+  <p>10. The loan shall not be higher than 30% of your  value.</p>
+    <h3>APPLICANT DECLARATION</h3>
+    <p>I <input type="text" name="declaration_name"> the undersigned applicant, hereby declare the information above is true,accurate and complete to the best of my knowledge.</p>
+    <p>I understand and accept the terms and conditions of this loan, including the repayment obligations, interest rates and penalties for default. </p>
+   <p> I  also understand that any FALSE or misleading information may result in disqualification  or legal action.</p>
+    <p>Signature: <input type="text" name="declaration_signature"> ID No: <input type="text" name="declaration_id"> Date: <input type="text" name="declaration_date"></p>
+
+    <h3>GUARANTOR DECLARATION </h3>
+   <p> I/ We , the UNDERSIGNED agree to act as guarantor of the above loan. I/We confirm that I have reviewed the terms of the loan agreement and understand that if the borrower fails to repay the loan, I will be fully liable to repay the outstanding balance including interests and penalties.</p>
+
+    <table>
+      <thead>
+        <tr><th>No</th><th>Name</th><th>ID</th><th>Phone</th><th>Relationship</th><th>Signature</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><input type="text" name="guarantor1_name"></td>
+          <td><input type="text" name="guarantor1_id"></td>
+          <td><input type="text" name="guarantor1_phone"></td>
+          <td><input type="text" name="guarantor1_relation"></td>
+          <td><input type="text" name="guarantor1_signature"></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><input type="text" name="guarantor1_name"></td>
+          <td><input type="text" name="guarantor1_id"></td>
+          <td><input type="text" name="guarantor1_phone"></td>
+          <td><input type="text" name="guarantor1_relation"></td>
+          <td><input type="text" name="guarantor1_signature"></td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><input type="text" name="guarantor1_name"></td>
+          <td><input type="text" name="guarantor1_id"></td>
+          <td><input type="text" name="guarantor1_phone"></td>
+          <td><input type="text" name="guarantor1_relation"></td>
+          <td><input type="text" name="guarantor1_signature"></td>
+        </tr>
+        <!-- Add rows for guarantor 2 and 3 as needed -->
+      </tbody>
+    </table>
+
+    <div class="navigation-buttons">
+      <button type="button" onclick="previousPage()">Previous Page</button>
+      <button type="button" onclick="nextPage()">Next Page</button>
+    </div>
+  </div>
+
+  <!-- Page 3 -->
+  <div class="page">
+    <h3>LOAN AFFIDAVIT</h3>
+    <p>I, <input type="text" name="affidavit_name"> of ID No. <input type="text" name="affidavit_id"> and phone <input type="text" name="affidavit_phone">, do hereby declare that I have taken a loan from SIDU INTERNATIONAL LTD.</p>
+    <p>Being an adult of sound mind and lawful capacity, do solemnly make oath and state as follows:</p>
+   <p> 1. THAT I am the applicant in respect to a loan of Ksh<input type="number" name="Amount"> from SIDU INTERNATIONAL LTD</p>
+     <p> 2. THAT I am the proprietor of a business located in <input type="text" name="Location"></p>
+   <p>3. ,That I have a physical shop, I agree that I will not change where I set up my business before completion of the loan repayment, and I acknowledge that the loan is fully guaranteed by the said premises and all equipment within it</p>
+   <p>4. THAT I solemnly undertake NOT TO close or CEASE operations of the said business without prior written notification to SIDU International Ltd.</p>
+   <p>5.  THAT, I further commit NOT TO change the physical address or my telephone number <input type="number" name="phone_number">  without prior written consent from SIDU International Ltd.</p>
+   <p>6. THAT, I have been loaned Ksh. <input type="number" name="amount"> on <input type="day" name="date"> 202<input type="year" name="year">
+   <p>7.THAT I commit to making a minimum daily repayment of Ksh.<input type="number" name="amount"> towards the loan from Monday to Saturday starting from.<input type="text" name="day"> 202 <input type="day" name="date"> </p>
+    <p>8. I agree that these additional  assets shall serve as collateral/ loan security pledge for the repayment of the loan</p>
+   
+   <h4>Upload ID Documents</h4>
+    <label>ID Front:</label><br />
+    <input type="file" name="id_front" accept="image/*" onchange="previewImage(this, 'idFrontPreview')"><br />
+    <img id="idFrontPreview" class="preview-img" /><br />
+
+    <label>ID Back:</label><br />
+    <input type="file" name="id_back" accept="image/*" onchange="previewImage(this, 'idBackPreview')"><br />
+    <img id="idBackPreview" class="preview-img" /><br />
+
+    <h4>Upload Collateral (Image or PDF)</h4>
+    <input type="file" name="collateral_doc" accept="image/*,.pdf" onchange="previewImage(this, 'collateralPreview')"><br />
+    <img id="collateralPreview" class="preview-img" /><br />
+
+    <p>Description: <input type="text" name="collateral_desc"> Serial Number: <input type="text" name="collateral_serial"></p>
+    <p>Signature: <input type="text" name="affidavit_signature"> Date: <input type="text" name="affidavit_date"></p>
+    <table>
+      <thead>
+        <tr><th>Name of the item</th><th>Detailed Description</th><th>Serial No. (if applicable)</th>
+      </thead>
+      <tbody>
+        <tr>
+        
+          <td><input type="text" name="Name of the item"></td> 
+          <td><input type="text" name="Detailed Description"></td>
+          <td><input type="text" name="Serial No. (if applicable)"></td> 
+        </tr>
+        <tr>
+        
+          <td><input type="text" name="Name of the item"></td> 
+          <td><input type="text" name="Detailed Description"></td>
+          <td><input type="text" name="Serial No. (if applicable)"></td> 
+        </tr>
+        <tr>
+        
+          <td><input type="text" name="Name of the item"></td> 
+          <td><input type="text" name="Detailed Description"></td>
+          <td><input type="text" name="Serial No. (if applicable)"></td> 
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div class="navigation-buttons">
+      <button type="button" onclick="previousPage()">Previous Page</button>
+      <button type="submit">Submit Application</button>
+    </div>
+  </div>
+</form>
+
+<script>
+  function previewImage(input, targetId) {
+    const file = input.files[0];
+    const preview = document.getElementById(targetId);
+    if (file && file.type.startsWith('image')) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  function nextPage() {
+    const pages = document.querySelectorAll('.page');
+    const current = document.querySelector('.page.active');
+    const index = Array.from(pages).indexOf(current);
+    if (index !== -1 && index + 1 < pages.length) {
+      current.classList.remove('active');
+      pages[index + 1].classList.add('active');
+    }
+  }
+
+  function previousPage() {
+    const pages = document.querySelectorAll('.page');
+    const current = document.querySelector('.page.active');
+    const index = Array.from(pages).indexOf(current);
+    if (index > 0) {
+      current.classList.remove('active');
+      pages[index - 1].classList.add('active');
+    }
+  }
+</script>
+</body>
+</html>

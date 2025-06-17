@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SIDU Loan Application – Page 3</title>
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      margin: 30px;
+      font-size: 18px;
+    }
+    h2 {
+      color: navy;
+      text-decoration: underline;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+    .form-row {
+      margin: 8px 0;
+    }
+    .input-line {
+      border: none;
+      border-bottom: 1px solid #000;
+      font-size: 14px;
+      width: 200px;
+      background: transparent;
+      outline: none;
+      height: 18px;
+      margin-right: 10px;
+    }
+    .input-line.long {
+      width: 350px;
+    }
+    .input-line.xlong {
+      width: 550px;
+    }
+    .input-line.short {
+      width: 40px;
+    }
+    ol, p {
+      line-height: 1.5;
+      text-align: justify;
+      margin: 6px 0;
+      font-size: 14px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 6px;
+    }
+    th {
+      background: #f0f0f0;
+      font-weight: bold;
+    }
+    .witness {
+      margin-top: 15px;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+    /* Image preview styles */
+    .upload-section {
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+    .upload-label {
+      font-weight: bold;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .preview-img {
+      display: block;
+      margin-top: 6px;
+      margin-bottom: 15px;
+      max-width: 250px;
+      max-height: 180px;
+      border: 1px solid #ccc;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>REPUBLIC OF KENYA – LOAN AFFIDAVIT</h2>
+
+  <form method="POST" action="update_page3.php" enctype="multipart/form-data">
+  
+    <p>
+      I, <input class="input-line xlong" type="text" name="applicant_name" required />, of ID No: 
+      <input class="input-line" type="text" name="applicant_id_no" required />, and Phone No: 
+      <input class="input-line" type="text" name="applicant_phone" required />,  
+      being an adult of sound mind and lawful capacity, do solemnly make oath and state as follows:
+    </p>
+
+    <ol>
+      <li>That I am the applicant in respect of a loan of Ksh <input class="input-line" type="text" name="loan_amount" required /> from SIDU INTERNATIONAL LTD.</li>
+      <li>That I am the proprietor of a business located at <input class="input-line long" type="text" name="business_location" required />.</li>
+      <li>That I have a physical shop and agree not to relocate it before full repayment, acknowledging that the loan is guaranteed by said premises and equipment therein.</li>
+      <li>That I undertake not to close or cease operations of the said business without prior written notification to SIDU INTERNATIONAL LTD.</li>
+      <li>That I further commit not to change my business address or telephone number (<input class="input-line" type="text" name="business_phone" />) without prior written consent.</li>
+      <li>That I was loaned Ksh <input class="input-line" type="text" name="loaned_amount" required /> on <input class="input-line" type="text" name="loan_date" placeholder="dd/mm/yyyy" required />, 20<input class="input-line short" type="text" name="loan_year_suffix" maxlength="2" required />.</li>
+      <li>That I commit to making a minimum daily repayment of Ksh <input class="input-line" type="text" name="daily_repayment" required /> from Monday to Saturday, commencing on <input class="input-line" type="text" name="repayment_start_date" placeholder="dd/mm/yyyy" required />, 20<input class="input-line short" type="text" name="repayment_year_suffix" maxlength="2" required />.</li>
+      <li>I agree that these additional assets shall serve as collateral/loan security pledge:</li>
+    </ol>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Detailed Description</th>
+          <th>Serial No. (if any)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input class="input-line long" type="text" name="collateral_item1" /></td>
+          <td><input class="input-line long" type="text" name="collateral_desc1" /></td>
+          <td><input class="input-line" type="text" name="collateral_serial1" /></td>
+        </tr>
+        <tr>
+          <td><input class="input-line long" type="text" name="collateral_item2" /></td>
+          <td><input class="input-line long" type="text" name="collateral_desc2" /></td>
+          <td><input class="input-line" type="text" name="collateral_serial2" /></td>
+        </tr>
+        <tr>
+          <td><input class="input-line long" type="text" name="collateral_item3" /></td>
+          <td><input class="input-line long" type="text" name="collateral_desc3" /></td>
+          <td><input class="input-line" type="text" name="collateral_serial3" /></td>
+        </tr>
+        <tr>
+          <td><input class="input-line long" type="text" name="collateral_item4" /></td>
+          <td><input class="input-line long" type="text" name="collateral_desc4" /></td>
+          <td><input class="input-line" type="text" name="collateral_serial4" /></td>
+        </tr>
+        <tr>
+          <td><input class="input-line long" type="text" name="collateral_item5" /></td>
+          <td><input class="input-line long" type="text" name="collateral_desc5" /></td>
+          <td><input class="input-line" type="text" name="collateral_serial5" /></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      I understand that failure to make payments for seven (7) consecutive days will entitle SIDU INTERNATIONAL LTD to recover the full outstanding loan balance immediately.  
+      In the event of default, I consent to SIDU INTERNATIONAL LTD auctioning the pledged collateral and taking any legal action to recover the loan amount.
+    </p>
+
+    <div class="upload-section">
+      <label class="upload-label" for="id_front">Upload ID Front:</label>
+      <input type="file" id="id_front" name="id_front" accept="image/*" />
+      <img id="preview_id_front" class="preview-img" src="#" alt="ID Front Preview" style="display:none" />
+    </div>
+
+    <div class="upload-section">
+      <label class="upload-label" for="id_back">Upload ID Back:</label>
+      <input type="file" id="id_back" name="id_back" accept="image/*" />
+      <img id="preview_id_back" class="preview-img" src="#" alt="ID Back Preview" style="display:none" />
+    </div>
+
+    <div class="form-row">
+      <label>Applicant’s Signature:</label><input class="input-line" type="text" name="applicant_signature" required />
+      <label style="margin-left:20px;">ID No:</label><input class="input-line" type="text" name="signature_id_no" required />
+      <label style="margin-left:20px;">Date:</label><input class="input-line" type="text" name="signature_date" placeholder="dd/mm/yyyy" required />
+    </div>
+
+    <div class="witness">
+      <p><strong>Witnessed By:</strong> SIDU INTERNATIONAL LTD Credit Department</p>
+      <div class="form-row">
+        <label>Name:</label><input class="input-line long" type="text" name="witness_name" />
+        <label style="margin-left:20px;">Signature:</label><input class="input-line" type="text" name="witness_signature" />
+      </div>
+      <div class="form-row">
+        <label>Date:</label><input class="input-line" type="text" name="witness_date" placeholder="dd/mm/yyyy" />
+      </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+      <button type="submit" style="font-size: 16px; padding: 8px 15px;">Submit Application</button>
+    </div>
+
+  </form>
+
+  <script>
+    // Preview function for ID Front
+    document.getElementById('id_front').addEventListener('change', function(event) {
+      const preview = document.getElementById('preview_id_front');
+      const file = event.target.files[0];
+      if (file) {
+        preview.style.display = 'block';
+        preview.src = URL.createObjectURL(file);
+      } else {
+        preview.style.display = 'none';
+        preview.src = '#';
+      }
+    });
+
+    // Preview function for ID Back
+    document.getElementById('id_back').addEventListener('change', function(event) {
+      const preview = document.getElementById('preview_id_back');
+      const file = event.target.files[0];
+      if (file) {
+        preview.style.display = 'block';
+        preview.src = URL.createObjectURL(file);
+      } else {
+        preview.style.display = 'none';
+        preview.src = '#';
+      }
+    });
+  </script>
+
+</body>
+</html>

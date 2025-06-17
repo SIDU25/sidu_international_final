@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIDU INTERNATIONAL LIMITED - FAQs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('bgsidu.jpeg') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 24px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: goldenrod;
+            padding: 10px;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            margin-top: 20px;
+        }
+        .slide {
+            display: none;
+            padding: 20px;
+            font-size: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+        .slide.active {
+            display: block;
+        }
+        button {
+            background: goldenrod;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .faq-section {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .faq-section h2 {
+            color: goldenrod;
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 16px;
+        }
+        .contact {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>SIDU INTERNATIONAL LIMITED - FAQs</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="faqs.html">FAQs</a>
+    <a href="chama.html">Chama Loans</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="slideshow-container">
+    <div class="slide active">
+        <h2>What is Sidu International Limited?</h2>
+        <p>Sidu International is a microfinance institution providing loans, savings, and financial solutions to individuals and businesses.</p>
+    </div>
+    <div class="slide">
+        <h2>Benefits of Using Sidu</h2>
+        <p>We offer quick loan approvals, financial security, low-interest rates, and flexible repayment options.</p>
+    </div>
+    <div class="slide">
+        <h2>How Can I Use My Loan?</h2>
+        <p>You can use loans for business growth, emergency needs, school fees, medical expenses, and investment opportunities.</p>
+    </div>
+    <div class="slide">
+        <h2>How to Register</h2>
+        <p>Simply fill out our online form, upload KYC documents, pay KES 500, and start applying for loans.</p>
+    </div>
+    <div class="slide">
+        <h2>Chama Loans and Savings</h2>
+        <p>Groups can save together and qualify for collective investment loans with attractive interest rates.</p>
+    </div>
+    <div class="slide">
+        <h2>Reasons for Saving</h2>
+        <p>Save to secure your financial future, prepare for emergencies, and grow your wealth through interest-earning savings plans.</p>
+    </div>
+    <div class="slide">
+        <h2>Why Choose Sidu?</h2>
+        <p>We prioritize financial empowerment, security, and customer satisfaction with reliable services.</p>
+    </div>
+</div>
+
+<button onclick="prevSlide()">❮ Previous</button>
+<button onclick="nextSlide()">Next ❯</button>
+
+<div class="faq-section">
+    <h2>Frequently Asked Questions (FAQs)</h2>
+    <p><strong>1. How long does loan approval take?</strong><br>Loan approvals take between 24-48 hours once all KYC documents are verified.</p>
+    <p><strong>2. What are the interest rates?</strong><br>Our interest rates vary based on the loan type and repayment period. Contact us for specific rates.</p>
+    <p><strong>3. Can I repay my loan early?</strong><br>Yes, early repayment is allowed without penalties.</p>
+    <p><strong>4. What happens if I miss a repayment?</strong><br>We provide a grace period, but penalties apply for late payments.</p>
+    <p><strong>5. Can I apply for multiple loans?</strong><br>Yes, depending on your repayment history and credit score.</p>
+</div>
+
+<footer>
+    <p>&copy; 2025 SIDU INTERNATIONAL LIMITED</p>
+    <div class="contact">
+        <p><strong>Location:</strong> Kiambu Indian Bazaar & Kiserian Branch Toiyanka Building Room 41&42</p>
+        <p><strong>Phone:</strong> 0714175910</p>
+        <p><strong>Email:</strong> office@siduinternational.com/p>
+    </div>
+</footer>
+
+<script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove("active");
+            if (i === index) {
+                slide.classList.add("active");
+            }
+        });
+    }
+
+    function nextSlide() {
+        slideIndex = (slideIndex + 1) % slides.length;
+        showSlide(slideIndex);
+    }
+
+    function prevSlide() {
+        slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+        showSlide(slideIndex);
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIDU INTERNATIONAL LTD - Loan Application</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .form-content {
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e8ecf0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-row-three {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        .section-title {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 20px;
+            margin: 30px -40px 25px -40px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 2px solid #e8ecf0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            border-color: #667eea;
+            background: #f0f2ff;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 2px solid #e8ecf0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .radio-item:hover {
+            border-color: #667eea;
+            background: #f0f2ff;
+        }
+
+        .radio-item input[type="radio"] {
+            width: auto;
+            margin-right: 8px;
+        }
+
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-upload-label {
+            display: block;
+            padding: 15px;
+            background: #f8f9fa;
+            border: 2px dashed #667eea;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload-label:hover {
+            background: #f0f2ff;
+            border-color: #764ba2;
+        }
+
+        .preview-img {
+            max-width: 200px;
+            max-height: 200px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 2px solid #e8ecf0;
+        }
+
+        .guarantor-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .guarantor-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .guarantor-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #e8ecf0;
+        }
+
+        .guarantor-table input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #e8ecf0;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .terms-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .terms-content {
+            max-height: 300px;
+            overflow-y: auto;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        .acceptance-section {
+            background: #fff3cd;
+            border: 2px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .acceptance-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .acceptance-checkbox input[type="checkbox"] {
+            width: auto;
+            margin-top: 3px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .error {
+            color: #e74c3c;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .spouse-section {
+            background: #f0f2ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .form-row-three {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .checkbox-group {
+                flex-direction: column;
+            }
+
+            .radio-group {
+                flex-direction: column;
+            }
+
+            .form-content {
+                padding: 20px;
+            }
+
+            .section-title {
+                margin: 20px -20px 20px -20px;
+                font-size: 16px;
+                padding: 12px 20px;
+            }
+
+            .guarantor-table {
+                font-size: 12px;
+            }
+
+            .guarantor-table th,
+            .guarantor-table td {
+                padding: 8px 5px;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>SIDU INTERNATIONAL LTD</h1>
+            <p>Professional Loan Application Form</p>
+        </div>
+
+        <div class="form-content">
+            <form id="loanApplicationForm" method="POST" action="submit_loan.php" enctype="multipart/form-data">
+                
+                <!-- Passport Photo Section -->
+                <div class="section-title">📸 PASSPORT PHOTOGRAPH</div>
+                <div class="form-group">
+                    <label for="passport_photo">Upload Passport Photo *</label>
+                    <div class="file-upload">
+                        <input type="file" id="passport_photo" name="passport_photo" accept="image/*" required>
+                        <label for="passport_photo" class="file-upload-label">
+                            📷 Click to upload passport photo
+                        </label>
+                    </div>
+                    <img id="passportPreview" class="preview-img hidden">
+                </div>
+
+                <!-- Application Details -->
+                <div class="section-title">📋 APPLICATION DETAILS</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Application No.</label>
+                        <input type="text" id="app_number" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" id="app_date" name="app_date" readonly>
+                    </div>
+                </div>
+
+                <!-- Applicant's Particulars -->
+                <div class="section-title">👤 APPLICANT'S PARTICULARS</div>
+                <div class="form-group">
+                    <label for="applicant_name">Full Name *</label>
+                    <input type="text" id="applicant_name" name="applicant_name" required>
+                </div>
+
+                <div class="form-row-three">
+                    <div class="form-group">
+                        <label for="id_number">ID/Passport Number *</label>
+                        <input type="text" id="id_number" name="id_number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nationality">Nationality *</label>
+                        <select id="nationality" name="nationality" required>
+                            <option value="">Select Nationality</option>
+                            <option value="Kenyan">Kenyan</option>
+                            <option value="Ugandan">Ugandan</option>
+                            <option value="Tanzanian">Tanzanian</option>
+                            <option value="Rwandan">Rwandan</option>
+                            <option value="Burundian">Burundian</option>
+                            <option value="Ethiopian">Ethiopian</option>
+                            <option value="Somali">Somali</option>
+                            <option value="Sudanese">Sudanese</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="town">Town/City *</label>
+                        <input type="text" id="town" name="town" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone_number">Phone Number *</label>
+                        <input type="tel" id="phone_number" name="phone_number" pattern="^(\+254|0)[7][0-9]{8}$" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="alt_phone">Alternative Phone Number *</label>
+                        <input type="tel" id="alt_phone" name="alt_phone" pattern="^(\+254|0)[7][0-9]{8}$" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <!-- Marital Status -->
+                <div class="form-group">
+                    <label>Marital Status *</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="single" name="marital_status" value="Single" required>
+                            <label for="single">Single</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="married" name="marital_status" value="Married" required>
+                            <label for="married">Married</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="divorced" name="marital_status" value="Divorced" required>
+                            <label for="divorced">Divorced</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="widowed" name="marital_status" value="Widowed" required>
+                            <label for="widowed">Widowed</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spouse Details (Hidden by default) -->
+                <div id="spouseSection" class="spouse-section hidden">
+                    <h4>Spouse Details</h4>
+                    <div class="form-row-three">
+                        <div class="form-group">
+                            <label for="spouse_name">Spouse Name</label>
+                            <input type="text" id="spouse_name" name="spouse_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="spouse_id">Spouse ID Number</label>
+                            <input type="text" id="spouse_id" name="spouse_id">
+                        </div>
+                        <div class="form-group">
+                            <label for="spouse_phone">Spouse Phone Number</label>
+                            <input type="tel" id="spouse_phone" name="spouse_phone" pattern="^(\+254|0)[7][0-9]{8}$">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Residential Details -->
+                <div class="section-title">🏠 RESIDENTIAL DETAILS</div>
+                <div class="form-row-three">
+                    <div class="form-group">
+                        <label for="location">Location/Estate *</label>
+                        <select id="location" name="location" required>
+                            <option value="">Select Location</option>
+                            <option value="Kiambu Town">Kiambu Town</option>
+                            <option value="Ruiru">Ruiru</option>
+                            <option value="Thika">Thika</option>
+                            <option value="Limuru">Limuru</option>
+                            <option value="Kikuyu">Kikuyu</option>
+                            <option value="Githunguri">Githunguri</option>
+                            <option value="Lari">Lari</option>
+                            <option value="Gatundu North">Gatundu North</option>
+                            <option value="Gatundu South">Gatundu South</option>
+                            <option value="Juja">Juja</option>
+                            <option value="Kabete">Kabete</option>
+                            <option value="Kiambaa">Kiambaa</option>
+                            <option value="Ndenderu">Ndenderu</option>
+                            <option value="Banana Hill">Banana Hill</option>
+                            <option value="Runda">Runda</option>
+                            <option value="Tigoni">Tigoni</option>
+                            <option value="Uplands">Uplands</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="plot_name">Plot No/Name *</label>
+                        <input type="text" id="plot_name" name="plot_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="house_number">House Number *</label>
+                        <input type="text" id="house_number" name="house_number" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="landmark">Nearest Landmark *</label>
+                        <input type="text" id="landmark" name="landmark" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gate_color">Gate Color *</label>
+                        <select id="gate_color" name="gate_color" required>
+                            <option value="">Select Gate Color</option>
+                            <option value="Red">Red</option>
+                            <option value="Blue">Blue</option>
+                            <option value="Green">Green</option>
+                            <option value="Yellow">Yellow</option>
+                            <option value="White">White</option>
+                            <option value="Black">Black</option>
+                            <option value="Brown">Brown</option>
+                            <option value="Grey">Grey</option>
+                            <option value="Orange">Orange</option>
+                            <option value="Purple">Purple</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Business Information -->
+                <div class="section-title">💼 BUSINESS INFORMATION</div>
+                <div class="form-group">
+                    <label>Business Ownership *</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="family_business" name="business_ownership" value="Family Business" required>
+                            <label for="family_business">Family Business</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="sole_proprietorship" name="business_ownership" value="Sole Proprietorship" required>
+                            <label for="sole_proprietorship">Sole Proprietorship</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="partnership" name="business_ownership" value="Partnership" required>
+                            <label for="partnership">Partnership</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="limited_company" name="business_ownership" value="Limited Company" required>
+                            <label for="limited_company">Limited Company</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="business_name">Business Name *</label>
+                        <input type="text" id="business_name" name="business_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="years_operation">Years in Operation *</label>
+                        <input type="number" id="years_operation" name="years_operation" min="0" max="50" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="registration_no">Registration Number</label>
+                        <input type="text" id="registration_no" name="registration_no">
+                    </div>
+                    <div class="form-group">
+                        <label for="licence_no">License Number</label>
+                        <input type="text" id="licence_no" name="licence_no">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Business Mode *</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="retail" name="business_mode" value="Retail" required>
+                            <label for="retail">Retail</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="wholesale" name="business_mode" value="Wholesale" required>
+                            <label for="wholesale">Wholesale</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="business_location">Business Location *</label>
+                        <input type="text" id="business_location" name="business_location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="business_landmark">Nearest Landmark *</label>
+                        <input type="text" id="business_landmark" name="business_landmark" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="business_value">Business Value (KSh) *</label>
+                        <input type="number" id="business_value" name="business_value" min="1000" required>
+                        <div id="businessValueError" class="error hidden">Business value cannot be lower than daily income</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="daily_income">Daily Income (KSh) *</label>
+                        <input type="number" id="daily_income" name="daily_income" min="100" required>
+                    </div>
+                </div>
+
+                <!-- Loan Details -->
+                <div class="section-title">💰 LOAN DETAILS</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="loan_amount">Loan Amount (KSh) *</label>
+                        <input type="number" id="loan_amount" name="loan_amount" min="1000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loan_amount_words">Amount in Words *</label>
+                        <input type="text" id="loan_amount_words" name="loan_amount_words" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="loan_purpose">Purpose of Loan *</label>
+                    <select id="loan_purpose" name="loan_purpose" required>
+                        <option value="">Select Purpose</option>
+                        <option value="Business Expansion">Business Expansion</option>
+                        <option value="Stock Purchase">Stock Purchase</option>
+                        <option value="Equipment Purchase">Equipment Purchase</option>
+                        <option value="Working Capital">Working Capital</option>
+                        <option value="Emergency">Emergency</option>
+                        <option value="Education">Education</option>
+                        <option value="Medical">Medical</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="interest_rate">Interest Rate (%) *</label>
+                        <input type="number" id="interest_rate" name="interest_rate" step="0.1" min="1" max="30" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="repayment_period">Max Repayment Period (Months) *</label>
+                        <input type="number" id="repayment_period" name="repayment_period" min="1" max="60" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="repayment_plan">Repayment Plan *</label>
+                    <textarea id="repayment_plan" name="repayment_plan" rows="3" placeholder="e.g., Monthly installments of KSh 5,000 for 12 months" required></textarea>
+                </div>
+
+                <!-- Collateral Section -->
+                <div class="form-group">
+                    <label>Collateral Type *</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="logbook" name="collateral_type" value="Logbook" required>
+                            <label for="logbook">Logbook</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="title_deed" name="collateral_type" value="Title Deed" required>
+                            <label for="title_deed">Title Deed</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="household_items" name="collateral_type" value="Household Items" required>
+                            <label for="household_items">Household Items</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="other_collateral" name="collateral_type" value="Other" required>
+                            <label for="other_collateral">Other</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="collateral_description">Collateral Description *</label>
+                    <textarea id="collateral_description" name="collateral_description" rows="3" required></textarea>
+                </div>
+
+                <!-- Guarantors Section -->
+                <div class="section-title">👥 GUARANTORS</div>
+                <table class="guarantor-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Full Name</th>
+                            <th>ID Number</th>
+                            <th>Phone Number</th>
+                            <th>Relationship</th>
+                            <th>Signature</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><input type="text" name="guarantor1_name" required></td>
+                            <td><input type="text" name="guarantor1_id" required></td>
+                            <td><input type="tel" name="guarantor1_phone" pattern="^(\+254|0)[7][0-9]{8}$" required></td>
+                            <td><input type="text" name="guarantor1_relation" required></td>
+                            <td><input type="text" name="guarantor1_signature" required></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><input type="text" name="guarantor2_name" required></td>
+                            <td><input type="text" name="guarantor2_id" required></td>
+                            <td><input type="tel" name="guarantor2_phone" pattern="^(\+254|0)[7][0-9]{8}$" required></td>
+                            <td><input type="text" name="guarantor2_relation" required></td>
+                            <td><input type="text" name="guarantor2_signature" required></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><input type="text" name="guarantor3_name" required></td>
+                            <td><input type="text" name="guarantor3_id" required></td>
+                            <td><input type="tel" name="guarantor3_phone" pattern="^(\+254|0)[7][0-9]{8}$" required></td>
+                            <td><input type="text" name="guarantor3_relation" required></td>
+                            <td><input type="text" name="guarantor3_signature" required></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Document Uploads -->
+                <div class="section-title">📄 DOCUMENT UPLOADS</div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="id_front">ID Front *</label>
+                        <div class="file-upload">
+                            <input type="file" id="id_front" name="id_front" accept="image/*" required>
+                            <label for="id_front" class="file-upload-label">
+                                📄 Upload ID Front
+                            </label>
+                        </div>
+                        <img id="idFrontPreview" class="preview-img hidden">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_back">ID Back *</label>
+                        <div class="file-upload">
+                            <input type="file" id="id_back" name="id_back" accept="image/*" required>
+                            <label for="id_back" class="file-upload-label">
+                                📄 Upload ID Back
+                            </label>
+                        </div>
+                        <img id="idBackPreview" class="preview-img hidden">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="collateral_doc">Collateral Document *</label>
+                    <div class="file-upload">
+                        <input type="file" id="collateral_doc" name="collateral_doc" accept="image/*,.pdf" required>
+                        <label for="collateral_doc" class="file-upload-label">
+                            📄 Upload Collateral Document (Image or PDF)
+                        </label>
+                    </div>
+                    <img id="collateralPreview" class="preview-img hidden">
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="terms-section">
+                    <h3>📋 TERMS AND CONDITIONS</h3>
+                    <div class="terms-content">
+                        <p><strong>1. LOAN SECURITY:</strong> This loan is secured by the applicant's business and the collateral described above.</p>
+                        
+                        <p><strong>2. INTEREST RATE:</strong> The loan attracts interest at the rate specified above and calculated on a reducing balance basis.</p>
+                        
+                        <p><strong>3. REPAYMENT:</strong> The borrower agrees to repay the loan according to the agreed repayment schedule. Late payments will attract a penalty of 5% per month.</p>
+                        
+                        <p><strong>4. DEFAULT:</strong> In case of default, the lender has the right to recover the loan amount through the disposal of the collateral provided.</p>
+                        
+                        <p><strong>5. COLLATERAL:</strong> The borrower pledges the described collateral as security for this loan. The collateral remains the property of the borrower until default occurs.</p>
+                        
+                        <p><strong>6. GUARANTORS:</strong> The guarantors listed above guarantee the repayment of this loan and agree to be jointly and severally liable for the debt.</p>
+                        
+                        <p><strong>7. LEGAL ACTION:</strong> Any disputes arising from this agreement shall be resolved through the courts of law in Kiambu County, Kenya.</p>
+                        
+                        <p><strong>8. VARIATION:</strong> This agreement can only be varied in writing and signed by both parties.</p>
+                        
+                        <p><strong>9. GOVERNING LAW:</strong> This agreement is governed by the laws of Kenya.</p>
+                    </div>
+                </div>
+
+                <!-- Applicant Declaration -->
+                <div class="section-title">✍️ APPLICANT DECLARATION</div>
+                <div class="terms-section">
+                    <p>I, <strong id="declarationName">[Applicant Name]</strong>, the undersigned applicant, hereby declare that:</p>
+                    <ul>
+                        <li>The information provided above is true and correct to the best of my knowledge</li>
+                        <li>I understand and accept the terms and conditions of this loan</li>
+                        <li>I authorize SIDU International Ltd to verify the information provided</li>
+                        <li>I pledge the described collateral as security for this loan</li>
+                        <li>I understand the consequences of defaulting on this loan</li>
+                    </ul>
+                </div>
+
+                <!-- Loan Affidavit -->
+                <div class="section-title">📜 LOAN AFFIDAVIT</div>
+                <div class="terms-section">
+                    <p>I, <strong id="affidavitName">[Applicant Name]</strong> of ID No. <strong id="affidavitId">[ID Number]</strong> and phone <strong id="affidavitPhone">[Phone Number]</strong>, do hereby declare that I have applied for a loan from SIDU INTERNATIONAL LTD.</p>
+                    
+                    <p>The requested loan amount is KSh <strong id="affidavitAmount">[Loan Amount]</strong>. I pledge the described collateral as security for this loan and understand that failure to repay may result in the disposal of the said collateral.</p>
+                    
+                    <p>I make this affidavit believing it to be true and in accordance with the Kenyan law.</p>
+                </div>
+
+                <!-- Final Acceptance -->
+                <div class="acceptance-section">
+                    <h3>🔒 FINAL ACCEPTANCE & SUBMISSION</h3>
+                    <div class="acceptance-checkbox">
+                        <input type="checkbox" id="termsAcceptance" required>
+                        <label for="termsAcceptance">
+                            <strong>I hereby confirm that:</strong><br>
+                            • I have read and understood all the terms and conditions<br>
+                            • All information provided is true and accurate<br>
+                            • I accept the loan affidavit as stated above<br>
+                            • I authorize SIDU International Ltd to process my loan application<br>
+                            • I understand this is a legally binding agreement
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn" disabled>
+                    🚀 Submit Loan Application
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Auto-fill user data (simulation - in real app this would come from login session)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulate logged-in user data (replace with actual session data)
+            const userData = {
+                name: "John Doe Mwangi",
+                id: "12345678",
+                phone: "+254712345678",
+                email: "john.doe@email.com"
+            };
+
+            // Auto-fill form with user data
+            document.getElementById('applicant_name').value = userData.name;
+            document.getElementById('id_number').value = userData.id;
+            document.getElementById('phone_number').value = userData.phone;
+            document.getElementById('email').value = userData.email;
+            
+            // Update declaration and affidavit sections
+            document.getElementById('declarationName').textContent = userData.name;
+            document.getElementById('affidavitName').textContent = userData.name;
+            document.getElementById('affidavitId').textContent = userData.id;
+            document.getElementById('affidavitPhone').textContent = userData.phone;
+
+            // Generate application number and set date
+            const appNumber = 'SIDU' + Date.now().toString().slice(-8);
+            document.getElementById('app_number').value = appNumber;
+            document.getElementById('app_date').value = new Date().toISOString().split('T')[0];
+        });
+
+        // Image preview function
+        function previewImage(input, previewId) {
+            const file = input.files[0];
+            const preview = document.getElementById(previewId);
+            
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Add event listeners for file uploads
+        document.getElementById('passport_photo').addEventListener('change', function() {
+            previewImage(this, 'passportPreview');
+        });
+
+        document.getElementById('id_front').addEventListener('change', function() {
+            previewImage(this, 'idFrontPreview');
+        });
+
+        document.getElementById('id_back').addEventListener('change', function() {
+            previewImage(this, 'idBackPreview');
+        });
+
+        document.getElementById('collateral_doc').addEventListener('change', function() {
+            previewImage(this, 'collateralPreview');
+        });
+
+        // Marital status change handler
+        document.querySelectorAll('input[name="marital_status"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const spouseSection = document.getElementById('spouseSection');
+                const spouseInputs = spouseSection.querySelectorAll('input');
+                
+                if (this.value === 'Married') {
+                    spouseSection.classList.remove('hidden');
+                    spouseInputs.forEach(input => input.required = true);
+                } else {
+                    spouseSection.classList.add('hidden');
+                    spouseInputs.forEach(input => {
+                        input.required = false;
+                        input.value = '';
+                    });
+                }
+            });
+        });
+
+        // Business value validation
+        document.getElementById('business_value').addEventListener('input', validateBusinessValue);
+        document.getElementById('daily_income').addEventListener('input', validateBusinessValue);
+
+        function validateBusinessValue() {
+            const businessValue = parseFloat(document.getElementById('business_value').value) || 0;
+            const dailyIncome = parseFloat(document.getElementById('daily_income').value) || 0;
+            const errorDiv = document.getElementById('businessValueError');
+            
+            if (businessValue > 0 && dailyIncome > 0 && businessValue < dailyIncome) {
+                errorDiv.classList.remove('hidden');
+                document.getElementById('business_value').style.borderColor = '#e74c3c';
+            } else {
+                errorDiv.classList.add('hidden');
+                document.getElementById('business_value').style.borderColor = '#e8ecf0';
+            }
+        }
+
+        // Convert number to words
+        function numberToWords(num) {
+            const ones = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+            const teens = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+            const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+            const thousands = ['', 'Thousand', 'Million', 'Billion'];
+
+            if (num === 0) return 'Zero';
+
+            function convertHundreds(n) {
+                let result = '';
+                if (n >= 100) {
+                    result += ones[Math.floor(n / 100)] + ' Hundred ';
+                    n %= 100;
+                }
+                if (n >= 20) {
+                    result += tens[Math.floor(n / 10)] + ' ';
+                    n %= 10;
+                } else if (n >= 10) {
+                    result += teens[n - 10] + ' ';
+                    return result;
+                }
+                if (n > 0) {
+                    result += ones[n] + ' ';
+                }
+                return result;
+            }
+
+            let result = '';
+            let thousandIndex = 0;
+            
+            while (num > 0) {
+                if (num % 1000 !== 0) {
+                    result = convertHundreds(num % 1000) + thousands[thousandIndex] + ' ' + result;
+                }
+                num = Math.floor(num / 1000);
+                thousandIndex++;
+            }
+            
+            return result.trim();
+        }
+
+        // Loan amount to words conversion
+        document.getElementById('loan_amount').addEventListener('input', function() {
+            const amount = parseFloat(this.value) || 0;
+            const wordsField = document.getElementById('loan_amount_words');
+            const affidavitAmount = document.getElementById('affidavitAmount');
+            
+            if (amount > 0) {
+                const words = numberToWords(amount) + ' Shillings Only';
+                wordsField.value = words;
+                affidavitAmount.textContent = amount.toLocaleString();
+            } else {
+                wordsField.value = '';
+                affidavitAmount.textContent = '[Loan Amount]';
+            }
+        });
+
+        // Terms acceptance handler
+        document.getElementById('termsAcceptance').addEventListener('change', function() {
+            document.getElementById('submitBtn').disabled = !this.checked;
+        });
+
+        // Phone number validation
+        function validatePhoneNumber(input) {
+            const kenyanPhoneRegex = /^(\+254|0)[7][0-9]{8}$/;
+            if (input.value && !kenyanPhoneRegex.test(input.value)) {
+                input.style.borderColor = '#e74c3c';
+                input.setCustomValidity('Please enter a valid Kenyan phone number (07XXXXXXXX or +2547XXXXXXXX)');
+            } else {
+                input.style.borderColor = '#e8ecf0';
+                input.setCustomValidity('');
+            }
+        }
+
+        // Add phone validation to all phone inputs
+        document.querySelectorAll('input[type="tel"]').forEach(input => {
+            input.addEventListener('blur', function() {
+                validatePhoneNumber(this);
+            });
+        });
+
+        // Guarantor name validation (ensure two names)
+        document.querySelectorAll('input[name*="guarantor"][name*="_name"]').forEach(input => {
+            input.addEventListener('blur', function() {
+                const names = this.value.trim().split(' ');
+                if (names.length < 2 || names.some(name => name.length < 2)) {
+                    this.style.borderColor = '#e74c3c';
+                    this.setCustomValidity('Please enter at least two names');
+                } else {
+                    this.style.borderColor = '#e8ecf0';
+                    this.setCustomValidity('');
+                }
+            });
+        });
+
+        // Form submission validation
+        document.getElementById('loanApplicationForm').addEventListener('submit', function(e) {
+            const businessValue = parseFloat(document.getElementById('business_value').value) || 0;
+            const dailyIncome = parseFloat(document.getElementById('daily_income').value) || 0;
+            
+            if (businessValue < dailyIncome) {
+                e.preventDefault();
+                alert('Business value cannot be lower than daily income. Please correct this.');
+                return;
+            }
+
+            const requiredBusinessMode = document.querySelector('input[name="business_mode"]:checked');
+            if (!requiredBusinessMode) {
+                e.preventDefault();
+                alert('Please select a business mode (Retail or Wholesale).');
+                return;
+            }
+
+            const termsAccepted = document.getElementById('termsAcceptance').checked;
+            if (!termsAccepted) {
+                e.preventDefault();
+                alert('Please accept the terms and conditions to proceed.');
+                return;
+            }
+
+            // If all validations pass
+            alert('Loan application submitted successfully! You will receive a confirmation shortly.');
+        });
+    </script>
+</body>
+</html>

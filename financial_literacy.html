@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Literacy - SIDU Learning Hub</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --accent-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --bg-light: #f7fafc;
+            --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+            --border-radius: 20px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) { width: 80px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 60px; height: 60px; top: 60%; left: 80%; animation-delay: 2s; }
+        .shape:nth-child(3) { width: 100px; height: 100px; top: 80%; left: 20%; animation-delay: 4s; }
+        .shape:nth-child(4) { width: 40px; height: 40px; top: 30%; left: 70%; animation-delay: 6s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 1; }
+        }
+
+        /* Header */
+        .header {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            animation: slideUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            animation: slideUp 1s ease 0.2s both;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--warning-gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            animation: slideUp 1s ease 0.4s both;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Learning Modules Grid */
+        .modules-section {
+            margin: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .module-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            color: white;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .module-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .module-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .module-card p {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .module-progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            height: 6px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--warning-gradient);
+            border-radius: 50px;
+            transition: width 1s ease;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            margin: 4rem 0;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tip-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 1.5rem;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .tip-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: var(--success-gradient);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .quiz-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-button {
+            background: var(--secondary-gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .quiz-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Resource Links */
+        .resources-section {
+            margin: 4rem 0;
+        }
+
+        .resource-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .resource-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1rem;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .resource-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(5px);
+        }
+
+        .resource-icon {
+            font-size: 1.5rem;
+            background: var(--success-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            color: white;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: slideUp 0.6s ease forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i> SIDU Learning
+            </div>
+            <ul class="nav-links">
+                <li><a href="dashboard.php"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#modules">Modules</a></li>
+                <li><a href="#tips">Tips</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1><i class="fas fa-brain"></i> Financial Literacy Hub</h1>
+            <p>Master your money management skills with our comprehensive financial education platform. Learn, practice, and grow your financial knowledge.</p>
+            <a href="#modules" class="hero-cta">
+                <i class="fas fa-play"></i> Start Learning
+            </a>
+        </section>
+
+        <!-- Learning Modules -->
+        <section class="modules-section" id="modules">
+            <h2 class="section-title">Learning Modules</h2>
+            <div class="modules-grid">
+                <div class="module-card" onclick="openModule('budgeting')">
+                    <div class="module-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Budgeting Basics</h3>
+                    <p>Learn how to create and maintain a personal budget that works for your lifestyle and financial goals.</p>
+                    <div class="module-progress">
+                        <span>12 Lessons • 2 hours</span>
+                        <span>Beginner</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="module-card" onclick="openModule('saving')">
+                    <div class="module-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3>Smart Saving Strategies</h3>
+                    <p>Discover effective saving techniques and build emergency funds that will secure your financial future.</p>
+                    <div class="module-progress">
+                        <span>8 Lessons • 1.5 hours</span>
+                        <span>Beginner</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="module-card" onclick="openModule('investing')">
+                    <div class="module-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Investment Fundamentals</h3>
+                    <p>Understand different investment options and learn how to grow your wealth through smart investing.</p>
+                    <div class="module-progress">
+                        <span>15 Lessons • 3 hours</span>
+                        <span>Intermediate</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="module-card" onclick="openModule('credit')">
+                    <div class="module-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Credit Management</h3>
+                    <p>Master credit scores, loans, and debt management to maintain healthy financial relationships.</p>
+                    <div class="module-progress">
+                        <span>10 Lessons • 2.5 hours</span>
+                        <span>Intermediate</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="module-card" onclick="openModule('retirement')">
+                    <div class="module-icon">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    <h3>Retirement Planning</h3>
+                    <p>Plan for your golden years with comprehensive retirement strategies and pension knowledge.</p>
+                    <div class="module-progress">
+                        <span>12 Lessons • 2.5 hours</span>
+                        <span>Advanced</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="module-card" onclick="openModule('business')">
+                    <div class="module-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Business Finance</h3>
+                    <p>Learn entrepreneurship basics, business planning, and financial management for small businesses.</p>
+                    <div class="module-progress">
+                        <span>18 Lessons • 4 hours</span>
+                        <span>Advanced</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Tips -->
+        <section class="tips-section" id="tips">
+            <h2 class="section-title">Quick Financial Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <h4>Pay Yourself First</h4>
+                    <p>Set aside savings before paying any bills. Aim for at least 20% of your income.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <h4>Emergency Fund</h4>
+                    <p>Build an emergency fund covering 3-6 months of living expenses for unexpected situations.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <h4>Track Your Spending</h4>
+                    <p>Monitor where your money goes. Use apps or spreadsheets to track every expense.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <h4>Avoid Lifestyle Inflation</h4>
+                    <p>When you earn more, resist the urge to spend more. Increase your savings instead.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">5</div>
+                    <h4>Diversify Investments</h4>
+                    <p>Don't put all eggs in one basket. Spread investments across different asset classes.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-number">6</div>
+                    <h4>Regular Reviews</h4>
+                    <p>Review your financial goals and progress monthly. Adjust strategies as needed.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-section">
+            <h2><i class="fas fa-question-circle"></i> Test Your Knowledge</h2>
+            <p>Take our interactive quizzes to assess your financial literacy and identify areas for improvement.</p>
+            <button class="quiz-button" onclick="startQuiz()">
+                <i class="fas fa-play"></i> Start Financial Quiz
+            </button>
+        </section>
+
+        <!-- Resources -->
+        <section class="resources-section" id="resources">
+            <h2 class="section-title">Additional Resources</h2>
+            <div class="resource-links">
+                <a href="#" class="resource-link" onclick="openResource('calculator')">
+                    <div class="resource-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div>
+                        <strong>Financial Calculators</strong>
+                        <small>Loan, mortgage, investment calculators</small>
+                    </div>
+                </a>
+                <a href="#" class="resource-link" onclick="openResource('templates')">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div>
+                        <strong>Budget Templates</strong>
+                        <small>Downloadable spreadsheets</small>
+                    </div>
+                </a>
+                <a href="#" class="resource-link" onclick="openResource('articles')">
+                    <div class="resource-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div>
+                        <strong>Financial Articles</strong>
+                        <small>Latest financial news and tips</small>
+                    </div>
+                </a>
+                <a href="#" class="resource-link" onclick="openResource('videos')">
+                    <div class="resource-icon">
+                        <i class="fas fa-video"></i

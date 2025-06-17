@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIDU International - Loan Application</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 30px; 
+      background: #f9f9f9; 
+      color: #000; 
+    }
+    
+    h2 { 
+      border-bottom: 1px solid #ccc; 
+      padding-bottom: 5px; 
+      margin-top: 30px; 
+      color: navy; 
+    }
+    
+    .row { 
+      display: flex; 
+      flex-wrap: wrap; 
+      margin-bottom: 10px; 
+      align-items: center;
+    }
+    
+    label { 
+      min-width: 160px; 
+      display: inline-block; 
+      font-weight: bold; 
+      margin-right: 10px;
+    }
+    
+    input, textarea, select {
+      border: none;
+      border-bottom: 1px solid #888;
+      background: transparent;
+      color: #000;
+      padding: 4px 6px;
+      width: 300px;
+      font-size: 11pt;
+      margin-right: 20px;
+    }
+    
+    input[type="checkbox"] {
+      width: auto;
+      margin-right: 5px;
+    }
+    
+    input[type="file"] {
+      width: auto;
+      border: 1px solid #ccc;
+      padding: 5px;
+      background: white;
+    }
+    
+    .form-section { 
+      margin-top: 20px; 
+    }
+    
+    .img-box { 
+      margin: 10px 0;
+    }
+    
+    .img-box img { 
+      height: 100px; 
+      border: 1px solid #ccc; 
+      margin: 5px; 
+      cursor: pointer; 
+      display: none;
+    }
+    
+    button {
+      background: goldenrod; 
+      border: none; 
+      color: #fff; 
+      padding: 10px 15px; 
+      cursor: pointer;
+      margin: 10px 5px 10px 0;
+      font-size: 11pt;
+    }
+    
+    button:hover {
+      background: #b8860b;
+    }
+    
+    table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin-top: 20px; 
+    }
+    
+    table, th, td { 
+      border: 1px solid #000; 
+    }
+    
+    th, td { 
+      padding: 8px; 
+      text-align: left;
+      font-size: 11pt;
+    }
+    
+    th {
+      background: #f0f0f0;
+      font-weight: bold;
+    }
+    
+    .checkbox-group {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 5px 0;
+    }
+    
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .page-break {
+      page-break-before: always;
+    }
+    
+    .navigation-buttons {
+      margin-top: 30px;
+      text-align: center;
+    }
+    
+    .terms-text {
+      text-align: justify;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+    
+    .declaration-section {
+      background: #f8f8f8;
+      padding: 15px;
+      border: 1px solid #ddd;
+      margin: 20px 0;
+    }
+    
+    @media print {
+      body { margin: 20px; background: white; }
+      button { display: none; }
+      .navigation-buttons { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <h2>SIDU INTERNATIONAL - LOAN APPLICATION FORM</h2>
+  
+<form method="POST" action="submit-loan.php" enctype="multipart/form-data">
+    
+    <!-- Application Details -->
+    <div class="form-section">
+      <div class="row">
+        <label>Application No:</label>
+        <input type="text" name="application_no" readonly>
+        <label>Date:</label>
+        <input type="date" name="application_date" required>
+      </div>
+    </div>
+
+    <!-- Passport Photo -->
+    <div class="form-section">
+      <h2>Upload Passport Photo</h2>
+      <div class="img-box">
+        <input type="file" name="passport_photo" accept="image/*" onchange="previewImage(this, 'passportPreview')" required>
+        <br>
+        <img id="passportPreview" alt="Passport Photo Preview" onclick="window.open(this.src)">
+      </div>
+    </div>
+
+    <!-- Applicant's Particulars -->
+    <div class="form-section">
+      <h2>Applicant's Particulars</h2>
+      <div class="row">
+        <label>Full Name:</label>
+        <input type="text" name="full_name" required>
+      </div>
+      <div class="row">
+        <label>ID / Passport No:</label>
+        <input type="text" name="id_number" required>
+        <label>Nationality:</label>
+        <input type="text" name="nationality" value="Kenyan">
+        <label>Town:</label>
+        <input type="text" name="town" required>
+      </div>
+      <div class="row">
+        <label>Phone:</label>
+        <input type="tel" name="phone" required>
+        <label>Alt Phone:</label>
+        <input type="tel" name="alt_phone">
+        <label>Email:</label>
+        <input type="email" name="email">
+      </div>
+      <div class="row">
+        <label>Marital Status:</label>
+        <select name="marital_status" required>
+          <option value="">Select Status</option>
+          <option value="Single">Single</option>
+          <option value="Married">Married</option>
+          <option value="Divorced">Divorced</option>
+          <option value="Widowed">Widowed</option>
+        </select>
+        <label>Spouse Name:</label>
+        <input type="text" name="spouse_name">
+        <label>Spouse ID:</label>
+        <input type="text" name="spouse_id">
+      </div>
+      <div class="row">
+        <label>Spouse Phone:</label>
+        <input type="tel" name="spouse_phone">
+        <label>Applicant Signature:</label>
+        <input type="text" name="applicant_signature" placeholder="Type your name">
+      </div>
+    </div>
+
+    <!-- Residential Details -->
+    <div class="form-section">
+      <h2>Residential Details</h2>
+      <div class="row">
+        <label>Location:</label>
+        <input type="text" name="location" required>
+        <label>Plot/Name:</label>
+        <input type="text" name="plot">
+        <label>House No:</label>
+        <input type="text" name="house_no">
+      </div>
+      <div class="row">
+        <label>Landmark:</label>
+        <input type="text" name="landmark">
+        <label>Gate Colour:</label>
+        <input type="text" name="gate_colour">
+      </div>
+    </div>
+
+    <!-- Business Information -->
+    <div class="form-section">
+      <h2>Business Information</h2>
+      <div class="row">
+        <label>Business Ownership:</label>
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="radio" name="ownership" value="Family Business" id="family">
+            <label for="family">Family Business</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="radio" name="ownership" value="Sole Proprietorship" id="sole">
+            <label for="sole">Sole Proprietorship</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="radio" name="ownership" value="Partnership" id="partnership">
+            <label for="partnership">Partnership</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="radio" name="ownership" value="Limited Company" id="limited">
+            <label for="limited">Limited Company</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label>Business Name:</label>
+        <input type="text" name="business_name" required>
+        <label>Years in Operation:</label>
+        <input type="number" name="years_operation" required>
+      </div>
+      <div class="row">
+        <label>Registration No:</label>
+        <input type="text" name="registration_no">
+        <label>Licence No:</label>
+        <input type="text" name="licence_no">
+        <label>Mode:</label>
+        <select name="business_mode">
+          <option value="">Select Mode</option>
+          <option value="Retail">Retail</option>
+          <option value="Wholesale">Wholesale</option>
+        </select>
+      </div>
+      <div class="row">
+        <label>Business Location:</label>
+        <input type="text" name="business_location" required>
+        <label>Landmark:</label>
+        <input type="text" name="business_landmark">
+      </div>
+      <div class="row">
+        <label>Business Value (Ksh):</label>
+        <input type="number" name="business_value" required>
+        <label>Daily Income (Ksh):</label>
+        <input type="number" name="daily_income" required>
+      </div>
+    </div>
+
+    <!-- Loan Details -->
+    <div class="form-section">
+      <h2>Loan Details</h2>
+      <div class="row">
+        <label>Loan Amount (Ksh):</label>
+        <input type="number" name="loan_amount" required>
+        <label>Amount in Words:</label>
+        <input type="text" name="loan_words" style="width: 400px;" required>
+      </div>
+      <div class="row">
+        <label>Purpose of Loan:</label>
+        <input type="text" name="loan_purpose" style="width: 400px;" required>
+      </div>
+      <div class="row">
+        <label>Interest Rate (%):</label>
+        <input type="text" name="interest_rate" value="10% per month" readonly>
+        <label>Max Period (months):</label>
+        <input type="number" name="repayment_period" value="2" readonly>
+      </div>
+      <div class="row">
+        <label>Repayment Plan:</label>
+        <input type="text" name="repayment_plan" required>
+        <label>Acceptance Signature:</label>
+        <input type="text" name="acceptance_signature" placeholder="Type your name">
+      </div>
+      <div class="row">
+        <label>Collateral Description:</label>
+        <input type="text" name="collateral_description" style="width: 500px;" required>
+      </div>
+    </div>
+
+    <!-- Office Approval Section -->
+    <div class="form-section">
+      <h2>Office Approval (Office Use Only)</h2>
+      <div class="row">
+        <label>Approved Amount:</label>
+        <input type="number" name="approved_amount" readonly>
+        <label>Date Approved:</label>
+        <input type="date" name="date_approved" readonly>
+        <label>Date Disbursed:</label>
+        <input type="date" name="date_disbursed" readonly>
+      </div>
+      <div class="row">
+        <label>Mode:</label>
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" name="mode_cheque" id="cheque">
+            <label for="cheque">Cheque</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" name="mode_mpesa" id="mpesa">
+            <label for="mpesa">M-PESA</label>
+          </div>
+        </div>
+        <label>Ref No:</label>
+        <input type="text" name="ref_no" readonly>
+        <label>M-PESA No:</label>
+        <input type="text" name="mpesa_no" readonly>
+      </div>
+      <div class="row">
+        <label>Loan Officer:</label>
+        <input type="text" name="loan_officer" readonly>
+        <label>Designation:</label>
+        <input type="text" name="designation" readonly>
+        <label>Officer Signature:</label>
+        <input type="text" name="officer_signature" readonly>
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Terms and Conditions -->
+    <div class="form-section">
+      <h2>Terms and Conditions</h2>
+      <div class="terms-text">
+        <p><strong>1.</strong> This loan is secured by the applicant's business located at 
+          <input type="text" name="secured_business_location" style="width: 300px;" required>.
+          Additionally household items: <input type="text" name="household_items" style="width: 300px;">.</p>
+        
+        <p><strong>2.</strong> The lender reserves the right to take possession of the business/assets in case of default without further notice.</p>
+        
+        <p><strong>3.</strong> That SIDU INTERNATIONAL LTD reserves the right to inspect the business premises and request any supporting documents necessary to verify business activity and ownership.</p>
+        
+        <p><strong>4.</strong> A fee of Ksh 500 will be deducted as loan application fee.</p>
+        
+        <p><strong>5.</strong> The applicable interest rate is 10% per month on reducing balance for a period of maximum 2 (two) months.</p>
+        
+        <p><strong>6.</strong> First month interest shall be deducted immediately after loan approval.</p>
+        
+        <p><strong>7.</strong> The borrower shall repay the loan on installments of 
+          <input type="text" name="installments_amount" style="width: 100px;" required> per 
+          <input type="text" name="installment_period" style="width: 100px;" required> as agreed. And MUST be paid from Monday to Saturday.</p>
+        
+        <p><strong>8.</strong> Daily repayment default shall attract a penalty of Ksh 50 per day.</p>
+        
+        <p><strong>9.</strong> If the borrower fails to repay for 
+          <input type="text" name="default_period" style="width: 100px;" required> consecutive weeks, the lender may liquidate the secured business/assets immediately without further reference to you and at your own cost.</p>
+        
+        <p><strong>10.</strong> The loan shall not be higher than 30% of your business value.</p>
+      </div>
+    </div>
+
+    <!-- Applicant Declaration -->
+    <div class="declaration-section">
+      <h2>Applicant Declaration</h2>
+      <div class="terms-text">
+        <p>I <input type="text" name="declaration_name" required> the undersigned applicant, hereby declare the information above is true, accurate and complete to the best of my knowledge.</p>
+        
+        <p>I understand and accept the terms and conditions of this loan, including the repayment obligations, interest rates and penalties for default.</p>
+        
+        <p>I also understand that any FALSE or misleading information may result in disqualification or legal action.</p>
+        
+        <div class="row">
+          <label>Signature:</label>
+          <input type="text" name="declaration_signature" required>
+          <label>ID No:</label>
+          <input type="text" name="declaration_id" required>
+          <label>Date:</label>
+          <input type="date" name="declaration_date" required>
+        </div>
+      </div>
+    </div>
+
+    <!-- Guarantor Declaration -->
+    <div class="form-section">
+      <h2>Guarantor Declaration</h2>
+      <div class="terms-text">
+        <p>I/We, the UNDERSIGNED agree to act as guarantor of the above loan. I/We confirm that I have reviewed the terms of the loan agreement and understand that if the borrower fails to repay the loan, I will be fully liable to repay the outstanding balance including interests and penalties.</p>
+      </div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Phone</th>
+            <th>Relationship</th>
+            <th>Signature</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><input type="text" name="guarantor1_name" required></td>
+            <td><input type="text" name="guarantor1_id" required></td>
+            <td><input type="text" name="guarantor1_phone" required></td>
+            <td><input type="text" name="guarantor1_relation" required></td>
+            <td><input type="text" name="guarantor1_signature" required></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><input type="text" name="guarantor2_name" required></td>
+            <td><input type="text" name="guarantor2_id" required></td>
+            <td><input type="text" name="guarantor2_phone" required></td>
+            <td><input type="text" name="guarantor2_relation" required></td>
+            <td><input type="text" name="guarantor2_signature" required></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><input type="text" name="guarantor3_name" required></td>
+            <td><input type="text" name="guarantor3_id" required></td>
+            <td><input type="text" name="guarantor3_phone" required></td>
+            <td><input type="text" name="guarantor3_relation" required></td>
+            <td><input type="text" name="guarantor3_signature" required></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Loan Affidavit -->
+    <div class="form-section">
+      <h2>Loan Affidavit</h2>
+      <div class="terms-text">
+        <p>I, <input type="text" name="affidavit_name" required> of ID No. <input type="text" name="affidavit_id" required> and phone <input type="text" name="affidavit_phone" required>, do hereby declare that I have taken a loan from SIDU INTERNATIONAL LTD.</p>
+        
+        <p>Being an adult of sound mind and lawful capacity, do solemnly make oath and state as follows:</p>
+        
+        <p><strong>1.</strong> THAT I am the applicant in respect to a loan of Ksh <input type="number" name="affidavit_amount" required> from SIDU INTERNATIONAL LTD</p>
+        
+        <p><strong>2.</strong> THAT I am the proprietor of a business located in <input type="text" name="affidavit_location" required></p>
+        
+        <p><strong>3.</strong> That I have a physical shop, I agree that I will not change where I set up my business before completion of the loan repayment, and I acknowledge that the loan is fully guaranteed by the said premises and all equipment within it</p>
+        
+        <p><strong>4.</strong> THAT I solemnly undertake NOT TO close or CEASE operations of the said business without prior written notification to SIDU International Ltd.</p>
+        
+        <p><strong>5.</strong> THAT, I further commit NOT TO change the physical address or my telephone number <input type="text" name="phone_number" required> without prior written consent from SIDU International Ltd.</p>
+        
+        <p><strong>6.</strong> THAT, I have been loaned Ksh. <input type="number" name="loan_given_amount" required> on <input type="date" name="loan_given_date" required></p>
+        
+        <p><strong>7.</strong> THAT I commit to making a minimum daily repayment of Ksh.<input type="number" name="repayment_daily" required> towards the loan from Monday to Saturday starting from <input type="date" name="repayment_start" required></p>
+        
+        <p><strong>8.</strong> I agree that these additional assets shall serve as collateral/loan security pledge for the repayment of the loan</p>
+        
+        <div class="row">
+          <label>Signature:</label>
+          <input type="text" name="affidavit_signature" required>
+          <label>Date Signed:</label>
+          <input type="date" name="affidavit_signed_date" required>
+        </div>
+      </div>
+    </div>
+
+    <!-- Document Uploads -->
+    <div class="form-section">
+      <h2>Upload Documents</h2>
+      
+      <div class="img-box">
+        <label><strong>ID Front:</strong></label><br>
+        <input type="file" name="id_front" accept="image/*" onchange="previewImage(this, 'idFrontPreview')" required>
+        <br><img id="idFrontPreview" alt="ID Front Preview" onclick="window.open(this.src)">
+      </div>
+
+      <div class="img-box">
+        <label><strong>ID Back:</strong></label><br>
+        <input type="file" name="id_back" accept="image/*" onchange="previewImage(this, 'idBackPreview')" required>
+        <br><img id="idBackPreview" alt="ID Back Preview" onclick="window.open(this.src)">
+      </div>
+
+      <div class="img-box">
+        <label><strong>Collateral Document (Image or PDF):</strong></label><br>
+        <input type="file" name="collateral_doc" accept="image/*,.pdf" onchange="previewImage(this, 'collateralPreview')" required>
+        <br><img id="collateralPreview" alt="Collateral Preview" onclick="window.open(this.src)">
+      </div>
+    </div>
+
+    <!-- Collateral Items Table -->
+    <div class="form-section">
+      <h2>Collateral Items Details</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name of the Item</th>
+            <th>Detailed Description</th>
+            <th>Serial No. (if applicable)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" name="collateral_item1_name"></td>
+            <td><input type="text" name="collateral_item1_desc"></td>
+            <td><input type="text" name="collateral_item1_serial"></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="collateral_item2_name"></td>
+            <td><input type="text" name="collateral_item2_desc"></td>
+            <td><input type="text" name="collateral_item2_serial"></td>
+          </tr>
+          <tr>
+            <td><input type="text" name="collateral_item3_name"></td>
+            <td><input type="text" name="collateral_item3_desc"></td>
+            <td><input type="text" name="collateral_item3_serial"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="navigation-buttons">
+      <button type="submit">🚀 Submit Application</button>
+      <button type="button" onclick="window.print()">🖨️ Print Application</button>
+    </div>
+  </form>
+
+  <script>
+    function previewImage(input, targetId) {
+      const file = input.files[0];
+      const preview = document.getElementById(targetId);
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          preview.src = e.target.result;
+          preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    // Auto-fill application date
+    document.addEventListener('DOMContentLoaded', function() {
+      const today = new Date().toISOString().split('T')[0];
+      document.querySelector('input[name="application_date"]').value = today;
+      document.querySelector('input[name="declaration_date"]').value = today;
+      document.querySelector('input[name="affidavit_signed_date"]').value = today;
+    });
+
+    // Auto-generate application number
+    function generateApplicationNumber() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+      return `SIDU-${year}${month}${day}-${random}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('input[name="application_no"]').value = generateApplicationNumber();
+    });
+  </script>
+</body>
+</html>
